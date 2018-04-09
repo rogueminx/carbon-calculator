@@ -6,6 +6,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { masterFirebaseConfig } from './api-keys';
 import { NgForm, NgModel, FormsModule } from '@angular/forms';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { NavComponent } from './nav/nav.component';
 
 
 export const firebaseConfig = {
@@ -19,7 +21,9 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WelcomeComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
