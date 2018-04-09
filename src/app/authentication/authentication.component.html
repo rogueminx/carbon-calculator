@@ -1,4 +1,0 @@
-<li *ngIf='!user'><button type="button" (click)='loginWithGoogle()' class="btn btn-default btn-sm">Login</button></li>
-<li *ngIf='user'>{{user?.displayName}}</li>
-<img *ngIf='user' src="{{user.photoURL}}" alt="">
-<li *ngIf='user'><button type="button" (click)='logout()' class="btn btn-default btn-sm">Logout</button></li>
