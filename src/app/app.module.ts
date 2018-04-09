@@ -8,6 +8,8 @@ import { masterFirebaseConfig } from './api-keys';
 import { NgForm, NgModel, FormsModule } from '@angular/forms';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NavComponent } from './nav/nav.component';
+import { routing } from './app.routing';
+import { AuthenticationComponent } from './authentication/authentication.component';
 
 
 export const firebaseConfig = {
@@ -23,14 +25,16 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     WelcomeComponent,
-    NavComponent
+    NavComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
