@@ -1,6 +1,5 @@
-import { Component, OnInit, OnChanges, SimpleChanges, DoCheck } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
-
 
 @Component({
   selector: 'app-authentication',
@@ -14,20 +13,15 @@ export class AuthenticationComponent implements OnInit {
 
   ngOnInit() {
     this.authService.user.subscribe(user=> {
-      this.user = user;
-      console.log(user);
+      if (user && user.emailVerified) {
+        this.user = user;
+      }
+      console.log(user)
     })
-  }
-
-  ngDoCheck(){
-
-  }
-
-  loginWithGoogle() {
-    this.authService.loginWithGoogle();
   }
 
   logout() {
     this.authService.logout();
+    this.user = null;
   }
 }
