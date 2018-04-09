@@ -1,3 +1,113 @@
-<p>
-  welcome works!
-</p>
+<div class="survey">
+  <div class="question form-group">
+    <label>How often do you eat animal based products? (eggs, dairy, meat)</label>
+    <br>
+    <!-- <select #animalConsumption>
+      <option value="-1.5"> Never ( Vegan ) </option>
+      <option value="-.75"> Vegetarian ( eggs/dairy, no meat ) </option>
+      <option value="0"> Occasionally ( really like veggies - occasional meat, eggs/dairy ) </option>
+      <option value=".75"> Often ( balanced meat/veggies - meat a few times a week, eggs/dairy almost daily )</option>
+      <option value="1.5"> Meat daily </option>
+    </select> -->
+    <div id="slider-box">
+      <label class="slider-label">Never</label>
+      <br>
+      <input #animalConsumption class="slider "type="range" min="1" max="10" step="0.01">
+      <br>
+      <label class="slider-label">Meat Daily</label>
+    </div>
+    <label>What is the size of your house?</label>
+    <br>
+    <div id="slider-box">
+      <label class="slider-label">50 sq ft</label>
+      <br>
+      <input #houseSize class="slider "type="range" min="50" max="15000" step="0.01">
+      <br>
+      <label class="slider-label">15,000 sq ft</label>
+    </div>
+    <label>How many people live in your household?</label>
+    <br>
+    <div id="slider-box">
+      <label class="slider-label">Just you</label>
+      <br>
+      <input #peopleInHome class="slider "type="range" min="1" max="10" step="1">
+      <br>
+      <label class="slider-label">10 people</label>
+    </div>
+
+    <label>How energy efficient is your home?</label>
+    <br>
+    <div id="slider-box">
+      <label class="slider-label">Hardly</label>
+      <br>
+      <input #houseEfficiency class="slider "type="range" min="1" max="10" step="0.01">
+      <br>
+      <label class="slider-label">Very</label>
+    </div>
+
+    <label>What percent of your home's electricity comes from renewable resources?</label>
+    <br>
+    <div id="slider-box">
+      <label class="slider-label">Low</label>
+      <br>
+      <input #percentRenewable class="slider "type="range" min="0" max="100" step="0.01">
+      <br>
+      <label class="slider-label">High</label>
+    </div>
+
+    <label>Compared to your neighbors, how much trash do you generate?</label>
+    <br>
+    <div id="slider-box">
+      <label class="slider-label">Much Less</label>
+      <br>
+      <input #trash class="slider "type="range" min="1" max="10" step="0.01">
+      <br>
+      <label class="slider-label">Much More</label>
+    </div>
+
+    <label>How far do you travel by car/motorcyle per week?</label>
+    <br>
+    <div id="slider-box">
+      <label class="slider-label">Zero</label>
+      <br>
+      <input #vehicleMiles class="slider "type="range" min="0" max="500" step="0.01">
+      <br>
+      <label class="slider-label">Very Far</label>
+    </div>
+
+    <label>What is the average fuel economy of the vehicle you use most?</label>
+    <br>
+    <div id="slider-box">
+      <label class="slider-label">Inefficient</label>
+      <br>
+      <input #fuelEconomy class="slider "type="range" min="10" max="150" step="0.01">
+      <br>
+      <label class="slider-label">Efficient / Electric</label>
+    </div>
+
+    <label>How far to you travel on public transportation every week?</label>
+    <br>
+    <div id="slider-box">
+      <label class="slider-label">Far</label>
+      <br>
+      <input #publicTransportMiles class="slider "type="range" min="0" max="500" step="0.01">
+      <br>
+      <label class="slider-label">Not Far</label>
+    </div>
+
+    <label>How many hours do you fly every year?</label>
+    <br>
+    <div id="slider-box">
+      <label class="slider-label">None</label>
+      <br>
+      <input #hoursFlown class="slider " type="range" min="0" max="200" step="0.01">
+      <br>
+      <label class="slider-label">Many</label>
+    </div>
+    <button type="btn btn-default" (click)="calculateClicked(animalConsumption.value, houseSize.value, peopleInHome.value, houseEfficiency.value, percentRenewable.value, trash.value, vehicleMiles.value, fuelEconomy.value, publicTransportMiles.value, hoursFlown.value)">Calculate</button>
+  </div>
+
+  <!-- <div>Hours flown: {{}}</div>
+
+  </div> -->
+</div>

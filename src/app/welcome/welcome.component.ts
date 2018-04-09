@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-
+  flown: number;
   constructor() { }
 
   ngOnInit() {
   }
-
+  calculateClicked(animalConsumption, houseSize, peopleInHome, houseEfficiency, percentRenewable, trash, vehicleMiles, fuelEconomy, publicTransportMiles, hoursFlown) {
+    console.log(animalConsumption, houseSize, peopleInHome, houseEfficiency, percentRenewable, trash, vehicleMiles, fuelEconomy, publicTransportMiles, hoursFlown);
+  }
 }
