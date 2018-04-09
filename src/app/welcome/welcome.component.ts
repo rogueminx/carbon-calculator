@@ -1,17 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { SurveyService } from '../services/survey.service';
+import { Survey } from '../models/survey.model';
+
 
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.css']
+  styleUrls: ['./welcome.component.css'],
+  providers: [SurveyService]
 })
 export class WelcomeComponent implements OnInit {
   flown: number;
-  constructor() { }
+  constructor(private SurveyService: SurveyService) { }
 
   ngOnInit() {
   }
-  calculateClicked(animalConsumption, houseSize, peopleInHome, houseEfficiency, percentRenewable, trash, vehicleMiles, fuelEconomy, publicTransportMiles, hoursFlown) {
-    console.log(animalConsumption, houseSize, peopleInHome, houseEfficiency, percentRenewable, trash, vehicleMiles, fuelEconomy, publicTransportMiles, hoursFlown);
+
+  submitSurvey(animalConsumption: string, houseSize: string, peopleInHome: string, houseEfficiency: string, percentRenewable: string, trash: string, vehicleMiles: string, fuelEconomy: string, publicTransportMiles: string, hoursFlown: string) {
+    let newSurvey: Survey = new Survey(animalConsumption, houseSize, peopleInHome, houseEfficiency, percentRenewable, trash, vehicleMiles, fuelEconomy, publicTransportMiles, hoursFlown);
+    this.SurveyService.saveSurvey(newSurvey);
   }
 }
