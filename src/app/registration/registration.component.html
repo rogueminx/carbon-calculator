@@ -1,7 +1,12 @@
 <div class="registration">
   <label>Email</label>
   <input type="text" #newEmail>
+
   <label>Password</label>
   <input type="password" #newPassword>
-  <button type="submit" (click)="registerUser(newEmail.value, newPassword.value)">submit</button>
+
+  <label>User Name</label>
+  <input type="text" #displayName>
+
+  <button type="submit" (click)="registerUser(newEmail.value, newPassword.value, displayName.value)">submit</button>
 </div>

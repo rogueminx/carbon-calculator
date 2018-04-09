@@ -17,16 +17,22 @@ export class AuthenticationService {
   }
 
   logout() {
-    this.afAuth.auth.signOut();
+    return this.afAuth.auth.signOut();
   }
 
-  createUser(email, password) {
+  createUser(email, password, displayName) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(user => {
       user.sendEmailVerification();
+      user.updateProfile({displayName:displayName});
     });
   }
 
   loginWithEmail(email, password) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password);
+  }
+
+  deleteAccount() {
+    firebase.auth().currentUser.delete();
+
   }
 }
