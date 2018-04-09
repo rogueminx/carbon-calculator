@@ -1,17 +1,21 @@
-.navbar-brand {
+/*.navbar-brand {
   font-size: 40px;
 }
 
 nav {
   border-bottom: 1.5px solid #67cac8;
   text-align: center;
-}
+}*/
 
 li {
   list-style: none;
 }
 
-.nav-item {
+/*.nav-item {
   margin-left: 10px;
   margin-right: 10px;
 }
+
+#navLogin {
+  float: right;
+}*/

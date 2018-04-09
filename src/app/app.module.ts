@@ -9,9 +9,9 @@ import { NgForm, NgModel, FormsModule } from '@angular/forms';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NavComponent } from './nav/nav.component';
 import { routing } from './app.routing';
-import { AuthenticationComponent } from './authentication/authentication.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { AccountStatusComponent } from './account-status/account-status.component';
 
 
 export const firebaseConfig = {
@@ -28,9 +28,9 @@ export const firebaseConfig = {
     AppComponent,
     WelcomeComponent,
     NavComponent,
-    AuthenticationComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    AccountStatusComponent
   ],
   imports: [
     BrowserModule,
