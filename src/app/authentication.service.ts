@@ -19,4 +19,14 @@ export class AuthenticationService {
   logout() {
     this.afAuth.auth.signOut();
   }
+
+  createUser(email, password) {
+    return this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(user => {
+      user.sendEmailVerification();
+    });
+  }
+
+  loginWithEmail(email, password) {
+    this.afAuth.auth.signInWithEmailAndPassword(email, password);
+  }
 }

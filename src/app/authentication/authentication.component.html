@@ -1,4 +1,17 @@
-<li *ngIf='!user'><button type="button" (click)='loginWithGoogle()' class="btn btn-default btn-sm">Login</button></li>
-<li *ngIf='user'>{{user?.displayName}}</li>
-<img *ngIf='user' src="{{user.photoURL}}" alt="">
-<li *ngIf='user'><button type="button" (click)='logout()' class="btn btn-default btn-sm">Logout</button></li>
+
+
+<div class="collapse navbar-collapse">
+  <ul *ngIf='user' class="navbar-nav mr-auto">
+    <li class='nav-item active'>{{user.email}}</li>
+    <li class='nav-item active'><img src="{{user.photoURL}}" alt=""></li>
+    <li class="nav-item" (click)="logout()"><a href="#">Sign out</a></li>
+
+  </ul>
+
+  <ul *ngIf='!user' class='nav-item active'>
+    <li class="nav-item" routerLink="/login">Login</li>
+    <!-- <li class="nav-item" routerLink="/login">Main Login Page</li> -->
+  </ul>
+
+
+</div>

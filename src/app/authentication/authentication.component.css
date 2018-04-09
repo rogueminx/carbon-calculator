@@ -3,3 +3,12 @@ img {
   width: auto;
   border-radius: 50%
 }
+
+li {
+  list-style: none;
+}
+
+.nav-item {
+  margin: 10px;
+  /*transform: translate(0%, 50%);*/
+}
