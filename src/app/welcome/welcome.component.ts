@@ -11,13 +11,14 @@ import { Survey } from '../models/survey.model';
 })
 export class WelcomeComponent implements OnInit {
   flown: number;
+  openSurvey: Survey = new Survey()
   constructor(private surveyService: SurveyService) { }
 
   ngOnInit() {
   }
 
-  submitSurvey(animalConsumption: string, houseSize: string, peopleInHome: string, houseEfficiency: string, percentRenewable: string, trash: string, vehicleMiles: string, fuelEconomy: string, publicTransportMiles: string, hoursFlown: string) {
-    let newSurvey: Survey = new Survey(animalConsumption, houseSize, peopleInHome, houseEfficiency, percentRenewable, trash, vehicleMiles, fuelEconomy, publicTransportMiles, hoursFlown);
-    this.surveyService.saveSurvey(newSurvey);
+  submitSurvey() {
+    this.surveyService.saveSurvey(this.openSurvey);
+    this.openSurvey = new Survey();
   }
 }
