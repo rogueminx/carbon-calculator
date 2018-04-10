@@ -16,7 +16,10 @@ export class RegistrationComponent implements OnInit {
   }
 
   registerUser(email: string, password: string, displayName:string) {
-    this.authService.createUser(email, password, displayName).then(_ => {
+    this.authService.createUser(email, password, displayName).then(user => {
+      if(user) {
+        console.log(user.uid);
+      }
       this.router.navigate([''])
     }).catch(error => {
       console.log(error.message);

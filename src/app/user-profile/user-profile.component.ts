@@ -21,7 +21,9 @@ export class UserProfileComponent implements OnInit, DoCheck {
   }
 
   deleteAccount() {
-    this.authService.deleteAccount();
-    this.router.navigate(['']);
+    if (confirm("Are you sure you'd like to delete your account?")) {
+      this.authService.deleteAccount();
+      this.router.navigate(['']);
+    }
   }
 }
