@@ -23,5 +23,5 @@ export class AccountStatusComponent implements OnInit {
     this.authService.logout();
     this.user = null;
 
-  }
+  } 
 }

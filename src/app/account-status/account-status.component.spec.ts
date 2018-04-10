@@ -22,4 +22,4 @@ describe('AccountStatusComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+}); 
