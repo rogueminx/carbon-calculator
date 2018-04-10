@@ -1,14 +1,23 @@
-<div class="login">
-  <span routerLink='/new' class="new-user">new user?</span>
-  <h2>Sign in with an existing account</h2>
-  <div class="form-group">
-    <label>Email</label>
-    <input #signInEmail type="text">
+<div class="login-flex">
+  <div class="login">
+    <h2>Sign In</h2>
+    <div class="form-group">
+      <label>Email</label>
+      <input #signInEmail type="text">
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input #signInPassword type="password">
+    </div>
+    <div class="email-button">
+      <button class="btn btn-default" (click)="loginWithEmail(signInEmail.value, signInPassword.value)">Sign in</button>
+    </div>
+    <p>OR</p>
+    <div class="google-button">
+      <button class="btn btn-default" (click)="loginWithGoogle()">Sign In With Google</button>
+    </div>
   </div>
-  <div class="form-group">
-    <label>Password</label>
-    <input #signInPassword type="password">
+  <div class="register">
+    <app-registration></app-registration>
   </div>
-  <button class="btn btn-default" (click)="loginWithEmail(signInEmail.value, signInPassword.value)">Sign in</button>
-  <button class="btn btn-default" (click)="loginWithGoogle()">Google</button>
 </div>
