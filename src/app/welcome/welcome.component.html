@@ -12,7 +12,7 @@
     <div id="slider-box">
       <label class="slider-label">Never</label>
       <br>
-      <input #animalConsumption class="slider "type="range" min="1" max="10" step="0.01">
+      <input #animalConsumption class="slider "type="range" min="-1.5" max="1.5" step="0.01">
       <br>
       <label class="slider-label">Meat Daily</label>
     </div>
@@ -40,7 +40,7 @@
     <div id="slider-box">
       <label class="slider-label">Hardly</label>
       <br>
-      <input #houseEfficiency class="slider "type="range" min="1" max="10" step="0.01">
+      <input #houseEfficiency class="slider "type="range" min="3.5" max="-3.5" step="0.01">
       <br>
       <label class="slider-label">Very</label>
     </div>
@@ -60,7 +60,7 @@
     <div id="slider-box">
       <label class="slider-label">Much Less</label>
       <br>
-      <input #trash class="slider "type="range" min="1" max="10" step="0.01">
+      <input #trash class="slider "type="range" min="-3.9" max="3.9" step="0.01">
       <br>
       <label class="slider-label">Much More</label>
     </div>
@@ -104,10 +104,6 @@
       <br>
       <label class="slider-label">Many</label>
     </div>
-    <button type="btn btn-default" (click)="calculateClicked(animalConsumption.value, houseSize.value, peopleInHome.value, houseEfficiency.value, percentRenewable.value, trash.value, vehicleMiles.value, fuelEconomy.value, publicTransportMiles.value, hoursFlown.value)">Calculate</button>
+    <button type="btn btn-default" (click)="submitSurvey(animalConsumption.value, houseSize.value, peopleInHome.value, houseEfficiency.value, percentRenewable.value, trash.value, vehicleMiles.value, fuelEconomy.value, publicTransportMiles.value, hoursFlown.value)">Calculate</button>
   </div>
-
-  <!-- <div>Hours flown: {{}}</div>
-
-  </div> -->
 </div>
