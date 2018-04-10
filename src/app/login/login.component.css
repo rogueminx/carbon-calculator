@@ -1,4 +1,19 @@
-.new-user {
-  font-size: 2em;
-  color: blue;
+.login-flex {
+  display: flex;
+  flex-direction: row;
+  margin-left:auto;
+  margin-right:auto;
+  width: 80%
+}
+
+.login {
+  padding: 20px;
+  width: 50%;
+  text-align: center;
+}
+
+.register {
+  padding: 20px;
+  width: 50%;
+  text-align: center;
 }

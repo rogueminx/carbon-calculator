@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../authentication.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-account-status',
@@ -23,5 +23,5 @@ export class AccountStatusComponent implements OnInit {
     this.authService.logout();
     this.user = null;
 
-  } 
+  }
 }
