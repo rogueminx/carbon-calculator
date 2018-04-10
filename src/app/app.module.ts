@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AccountStatusComponent } from './account-status/account-status.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
 
 
 export const firebaseConfig = {
@@ -32,7 +33,8 @@ export const firebaseConfig = {
     LoginComponent,
     RegistrationComponent,
     AccountStatusComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    PieChartComponent
   ],
   imports: [
     BrowserModule,

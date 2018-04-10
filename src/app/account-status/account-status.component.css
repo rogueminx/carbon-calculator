@@ -1,15 +1,20 @@
 li {
   list-style: none;
-}
-
-.nav-item {
-  margin: 10px;
-  /*transform: translate(0%, 50%);*/
+  /*margin-top: 10px;*/
 }
 
 img {
+  margin: 5px;
   border-radius: 50%;
-  height: 2em;
+  height: 3em;
   flex: 0 0 auto;
   cursor: pointer;
+}
+
+/*.status {
+  display: inline-block;
+}*/
+
+.list-inline {
+  display: inline;
 }

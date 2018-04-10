@@ -13,9 +13,7 @@ export class AccountStatusComponent implements OnInit {
 
   ngOnInit() {
     this.authService.user.subscribe(user=> {
-      if (user && user.emailVerified) {
-        this.user = user;
-      }
+      this.user = user;
       console.log(user)
     })
   }
