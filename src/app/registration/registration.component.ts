@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css'],
-  providers: [AuthenticationService]
+  providers: [AuthenticationService, UserService]
 })
 export class RegistrationComponent implements OnInit {
-
-  constructor(public authService: AuthenticationService, public router: Router) { }
+  currentUserUID: string;
+  constructor(public authService: AuthenticationService, public userService: UserService, public router: Router) { }
 
   ngOnInit() {
   }

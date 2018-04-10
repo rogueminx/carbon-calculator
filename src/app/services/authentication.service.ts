@@ -33,6 +33,5 @@ export class AuthenticationService {
 
   deleteAccount() {
     firebase.auth().currentUser.delete();
-
   }
 }

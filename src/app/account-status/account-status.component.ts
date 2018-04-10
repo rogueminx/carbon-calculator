@@ -9,21 +9,22 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class AccountStatusComponent implements OnInit {
   public user;
+  private isLoggedIn: boolean;
   constructor(public authService: AuthenticationService) { }
 
   ngOnInit() {
-    this.authService.user.subscribe(user=> {
-      if (user && user.emailVerified) {
-        this.user = user;
+    this.authService.user.subscribe(user => {
+      if (user == null) {
+        this.isLoggedIn = false;
+      } else {
+        this.isLoggedIn = true;
+        this.user = user
       }
-      console.log(user)
-    })
+    });
   }
 
   logout() {
-    // alert(this.user.uid);
     this.authService.logout();
     this.user = null;
-
   }
 }
