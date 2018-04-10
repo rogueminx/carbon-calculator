@@ -15,21 +15,11 @@ export class PieChartComponent implements OnInit, OnChanges {
 
     // Pie
     public pieChartLabels:string[] = ['Transport', 'Food', 'Housing'];
-    public pieChartData:number[] = [1,1,1];
-
-    public chartClicked(e:any):void {
-      console.log(e);
-      this.ngOnChanges();
-    }
+    public pieChartData:number[] = [0,0,0];
 
     ngOnChanges() {
       this.pieChartData = [this.transport, this.food, this.housing];
-      console.log('update');
-    }
-
-    public chartHovered(e:any):void {
-      console.log(e);
-    }
+    } 
 
     ngOnInit() {
       this.ngOnChanges();

@@ -1,12 +1,11 @@
-<div class="collapse navbar-collapse">
-  <ul *ngIf='user' class="navbar-nav navbar-right mr-auto">
-    <li class='nav-item active'>{{user.displayName}}</li>
-    <li class='nav-item active'><img routerLink="/user" src="{{user.photoURL}}" alt=""></li>
+<div class="status d-flex">
+  <ul *ngIf='user' class="nav navbar-nav list-inline">
+    <li class='nav-item'><a href="#" routerLink="/user">{{user.displayName}}</a></li>
+    <li class='nav-item'><img routerLink="/user" src="{{user.photoURL}}" alt=""></li>
     <li class="nav-item" (click)="logout()"><a href="#">Sign out</a></li>
   </ul>
 
-  <ul *ngIf='!user' class='navbar-nav navbar-right mr-auto'>
-    <li class="nav-item" routerLink="/login">Login</li>
-    <!-- <li class="nav-item" routerLink="/login">Main Login Page</li> -->
+  <ul *ngIf='!user' class='nav navbar-nav'>
+    <li class="nav-item"><a href="#" routerLink="/login">Sign In</a></li>
   </ul>
 </div>

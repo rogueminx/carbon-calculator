@@ -64,7 +64,7 @@
       <label class="slider-label">Not Far</label>
       <br>
       <input [(ngModel)]="openSurvey.vehicleMiles" class="slider "type="range" min="0" max="500" step="0.01">
-      <br>
+      <br> 
       <label class="slider-label">Very Far</label>
     </div>
 
@@ -102,4 +102,7 @@
 
 </div>
 
-<app-pie-chart [transport]='openSurvey.vehicleMiles' [food]='100' [housing]='200'></app-pie-chart>
+<app-pie-chart
+[transport]='openSurvey.vehicleMiles'
+[food]='100'
+[housing]='200'></app-pie-chart>

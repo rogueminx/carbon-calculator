@@ -9,8 +9,6 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class AccountStatusComponent implements OnInit {
   public user;
-  private isLoggedIn: boolean;
-
   constructor(public authService: AuthenticationService) { }
 
   ngOnInit() {
@@ -21,7 +19,9 @@ export class AccountStatusComponent implements OnInit {
   }
 
   logout() {
+    // alert(this.user.uid);
     this.authService.logout();
     this.user = null;
+
   }
 }
