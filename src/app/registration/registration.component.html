@@ -1,12 +1,16 @@
+<h2>Create a New Account</h2>
 <div class="registration">
-  <label>Email</label>
-  <input type="text" #newEmail>
-
-  <label>Password</label>
-  <input type="password" #newPassword>
-
-  <label>User Name</label>
-  <input type="text" #displayName>
-
-  <button type="submit" (click)="registerUser(newEmail.value, newPassword.value, displayName.value)">submit</button>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text" #newEmail>
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" #newPassword>
+  </div>
+  <div class="form-group">
+    <label>User Name</label>
+    <input type="text" #displayName>
+  </div>
+    <button type="submit" (click)="registerUser(newEmail.value, newPassword.value, displayName.value)">submit</button>
 </div>
