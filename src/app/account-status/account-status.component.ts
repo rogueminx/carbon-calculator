@@ -13,6 +13,7 @@ export class AccountStatusComponent implements OnInit {
   constructor(public authService: AuthenticationService) { }
 
   ngOnInit() {
+<<<<<<< HEAD
     this.authService.user.subscribe(user => {
       if (user == null) {
         this.isLoggedIn = false;
@@ -21,6 +22,12 @@ export class AccountStatusComponent implements OnInit {
         this.user = user
       }
     });
+=======
+    this.authService.user.subscribe(user=> {
+      this.user = user;
+      console.log(user)
+    })
+>>>>>>> 6b52fd719e5706b66e0f2b1849452132690bc1e0
   }
 
   logout() {
