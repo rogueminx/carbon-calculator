@@ -16,6 +16,7 @@ export class WelcomeComponent implements OnInit {
   constructor(private surveyService: SurveyService) { }
 
   ngOnInit() {
+    this.openSurvey.calculate;
   }
   submitSurvey() {
     // this.surveyService.saveSurvey(this.openSurvey);
@@ -27,8 +28,8 @@ export class WelcomeComponent implements OnInit {
     // console.log(animalProductCo2);
     this.openSurvey.animalProductCo2 = parseFloat(animalProductCo2);
 
-    this.openSurvey.calculate;
-    console.log("updateFood")
+    this.openSurvey.calculate();
+    console.log(this.openSurvey.transportCo2);
   }
 
   housingChange(squareFeet, peopleInHome, energyCo2, trashCo2) {
@@ -37,8 +38,10 @@ export class WelcomeComponent implements OnInit {
     this.openSurvey.energyCo2 = parseFloat(energyCo2);
     this.openSurvey.trashCo2 = parseFloat(trashCo2);
 
-    this.openSurvey.calculate;
+    this.openSurvey.calculate();
     console.log("updatehousing")
+    console.log(this.openSurvey.transportCo2);
+
   }
 
   transportationChange(vehicleMiles, milesPerGallon, publicMiles, hoursFlown) {
@@ -47,7 +50,9 @@ export class WelcomeComponent implements OnInit {
     this.openSurvey.publicMiles = parseFloat(publicMiles);
     this.openSurvey.hoursFlown = parseFloat(hoursFlown);
 
-    this.openSurvey.calculate;
+    this.openSurvey.calculate();
     console.log("updatetransport")
+    console.log(this.openSurvey.transportCo2);
+
   }
 }
