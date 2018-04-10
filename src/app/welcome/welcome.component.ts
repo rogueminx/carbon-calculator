@@ -16,20 +16,38 @@ export class WelcomeComponent implements OnInit {
   constructor(private surveyService: SurveyService) { }
 
   ngOnInit() {
-    // this.openSurvey.animalConsumption =
-    // this.openSurvey.squareFeet =
-    // this.openSurvey.peopleInHome =
-    // this.openSurvey.houseEfficiency =
-    // this.openSurvey.percentRenewable =
-    // this.openSurvey.trash =
-    // this.openSurvey.vehicleMiles =
-    // this.openSurvey.milesPerGallon =
-    // this.openSurvey.publicMiles =
-    // this.openSurvey.hoursFlown =
   }
   submitSurvey() {
     // this.surveyService.saveSurvey(this.openSurvey);
     // this.openSurvey = new Survey();
-    console.log(this.openSurvey.getTonnes());
+  }
+
+  foodChange(animalProductCo2) {
+    // console.log("hey");
+    // console.log(animalProductCo2);
+    this.openSurvey.animalProductCo2 = parseFloat(animalProductCo2);
+
+    this.openSurvey.calculate;
+    console.log("updateFood")
+  }
+
+  housingChange(squareFeet, peopleInHome, energyCo2, trashCo2) {
+    this.openSurvey.squareFeet = parseFloat(squareFeet);
+    this.openSurvey.peopleInHome = parseFloat(peopleInHome);
+    this.openSurvey.energyCo2 = parseFloat(energyCo2);
+    this.openSurvey.trashCo2 = parseFloat(trashCo2);
+
+    this.openSurvey.calculate;
+    console.log("updatehousing")
+  }
+
+  transportationChange(vehicleMiles, milesPerGallon, publicMiles, hoursFlown) {
+    this.openSurvey.vehicleMiles = parseFloat(vehicleMiles);
+    this.openSurvey.milesPerGallon = parseFloat(milesPerGallon);
+    this.openSurvey.publicMiles = parseFloat(publicMiles);
+    this.openSurvey.hoursFlown = parseFloat(hoursFlown);
+
+    this.openSurvey.calculate;
+    console.log("updatetransport")
   }
 }
