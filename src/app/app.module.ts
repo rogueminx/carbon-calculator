@@ -12,6 +12,7 @@ import { routing } from './app.routing';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AccountStatusComponent } from './account-status/account-status.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 export const firebaseConfig = {
@@ -30,7 +31,8 @@ export const firebaseConfig = {
     NavComponent,
     LoginComponent,
     RegistrationComponent,
-    AccountStatusComponent
+    AccountStatusComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

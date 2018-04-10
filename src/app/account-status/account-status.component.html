@@ -1,7 +1,7 @@
 <div class="collapse navbar-collapse">
   <ul *ngIf='user' class="navbar-nav navbar-right mr-auto">
-    <li class='nav-item active'>{{user.email}}</li>
-    <li class='nav-item active'><img src="{{user.photoURL}}" alt=""></li>
+    <li class='nav-item active'>{{user.displayName}}</li>
+    <li class='nav-item active'><img routerLink="/user" src="{{user.photoURL}}" alt=""></li>
     <li class="nav-item" (click)="logout()"><a href="#">Sign out</a></li>
   </ul>
 

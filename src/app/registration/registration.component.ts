@@ -15,8 +15,8 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
   }
 
-  registerUser(email: string, password: string) {
-    this.authService.createUser(email, password).then(_=> {
+  registerUser(email: string, password: string, displayName:string) {
+    this.authService.createUser(email, password, displayName).then(_ => {
       this.router.navigate([''])
     }).catch(error => {
       console.log(error.message);
