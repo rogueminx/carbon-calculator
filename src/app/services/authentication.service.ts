@@ -37,21 +37,38 @@ export class AuthenticationService {
 
   createUser(email, password, displayName) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(signedInUser => {
+      if(signedInUser) {
+        let uid = firebase.auth().currentUser.uid;
+        this.authenticatedUserUID = uid;
         signedInUser.sendEmailVerification();
         signedInUser.updateProfile({displayName:displayName});
-        if(signedInUser) {
-          let uid = firebase.auth().currentUser.uid;
-          this.authenticatedUserUID = uid;
-          this.userExists(uid).subscribe(user => {
+        this.userExists(uid).subscribe(user => {
           if (!user) {
-            const newUser = new User (signedInUser.user.displayName, signedInUser.user.uid, signedInUser.user.email);
+            const newUser = new User (displayName, this.authenticatedUserUID, email);
             this.pushUserToDatabase(newUser);
           }
         })
       }
     });
-
   }
+
+  // createUser(email, password, displayName) {
+  //   return this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(signedInUser => {
+  //       signedInUser.sendEmailVerification();
+  //       signedInUser.updateProfile({displayName:displayName});
+  //       if(signedInUser) {
+  //         let uid = firebase.auth().currentUser.uid;
+  //         this.authenticatedUserUID = uid;
+  //         this.userExists(uid).subscribe(user => {
+  //         if (!user) {
+  //           const newUser = new User (signedInUser.user.displayName, signedInUser.user.uid, signedInUser.user.email);
+  //           this.pushUserToDatabase(newUser);
+  //         }
+  //       })
+  //     }
+  //   });
+  //
+  // }
 
   pushUserToDatabase(newUser: User): void {
     this.database.list(`users`).push(newUser);
