@@ -15,10 +15,20 @@ export class WelcomeComponent implements OnInit {
   constructor(private surveyService: SurveyService) { }
 
   ngOnInit() {
+    // this.openSurvey.animalConsumption =
+    // this.openSurvey.squareFeet =
+    // this.openSurvey.peopleInHome =
+    // this.openSurvey.houseEfficiency =
+    // this.openSurvey.percentRenewable =
+    // this.openSurvey.trash =
+    // this.openSurvey.vehicleMiles =
+    // this.openSurvey.milesPerGallon =
+    // this.openSurvey.publicMiles =
+    // this.openSurvey.hoursFlown =
   }
-
   submitSurvey() {
-    this.surveyService.saveSurvey(this.openSurvey);
-    this.openSurvey = new Survey();
+    // this.surveyService.saveSurvey(this.openSurvey);
+    // this.openSurvey = new Survey();
+    console.log(this.openSurvey.getTonnes());
   }
 }
