@@ -11,6 +11,7 @@ import { Survey } from '../models/survey.model';
 })
 export class WelcomeComponent implements OnInit {
   flown: number;
+  test:number = 100;
   openSurvey: Survey = new Survey()
   constructor(private surveyService: SurveyService) { }
 
