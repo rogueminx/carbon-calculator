@@ -12,7 +12,7 @@
     <div id="slider-box">
       <label class="slider-label">Never</label>
       <br>
-      <input [(ngModel)]="openSurvey.animalConsumption" class="slider "type="range" min="-1.5" max="1.5" step="0.01">
+      <input [(ngModel)]="openSurvey.animalConsumption" class="slider "type="range" min="0" max="45" step="0.01">
       <br>
       <label class="slider-label">Meat Daily</label>
     </div>
@@ -108,3 +108,5 @@
   </div>
 
 </div>
+
+<app-pie-chart [transport]='300' [food]='100' [housing]='200'></app-pie-chart>

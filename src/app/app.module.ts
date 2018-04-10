@@ -14,6 +14,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AccountStatusComponent } from './account-status/account-status.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 
 export const firebaseConfig = {
@@ -42,7 +43,8 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    routing
+    routing,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

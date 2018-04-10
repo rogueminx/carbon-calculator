@@ -1,3 +1,10 @@
-<p>
-  pie-chart works!
-</p>
+<div class="inline-block">
+  <div class="col-md-5">
+    <canvas baseChart
+                [data]="pieChartData"
+                [labels]="pieChartLabels"
+                [chartType]="pieChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+  </div>
+</div>
