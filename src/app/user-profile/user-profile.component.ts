@@ -12,6 +12,8 @@ import { SurveyService } from '../services/survey.service';
 export class UserProfileComponent implements OnInit, DoCheck {
   user;
   userSurveys;
+  showSurveys: boolean = true;
+  showTips: boolean = false;
   renderLineChart: boolean = false;
   constructor(private router:Router, private authService: AuthenticationService, private surveyService: SurveyService) { }
 
@@ -24,9 +26,7 @@ export class UserProfileComponent implements OnInit, DoCheck {
           this.renderLineChart = true;
         });
       }
-
     });
-
   }
 
   ngDoCheck() {
@@ -37,10 +37,28 @@ export class UserProfileComponent implements OnInit, DoCheck {
     this.router.navigate(['survey', 'goal']);
   }
 
+  takeSurvey() {
+    this.router.navigate(['survey']);
+  }
+
   deleteAccount() {
     if (confirm("Are you sure you'd like to delete your account?")) {
       this.router.navigate(['']);
       this.authService.deleteAccount();
     }
   }
+
+  clickedShowTips() {
+    this.showTips=true;
+    this.showSurveys=false;
+  }
+
+  clickedShowSurveys() {
+    this.showTips=false;
+    this.showSurveys=true;
+  }
+
+
+
+
 }

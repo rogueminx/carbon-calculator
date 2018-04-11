@@ -14,7 +14,6 @@ export class AccountStatusComponent implements OnInit {
   ngOnInit() {
     this.authService.user.subscribe(user=> {
       this.user = user;
-      console.log(user)
     })
   }
 
