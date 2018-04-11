@@ -56,7 +56,7 @@ export class AuthenticationService {
   }
 
   pushUserToDatabase(newUser: User): void {
-    this.database.list(`users`).push(newUser);
+    this.database.object(`users/${newUser.UID}`).update(newUser);
 }
 
   loginWithEmail(email, password) {
@@ -65,17 +65,20 @@ export class AuthenticationService {
 
   deleteAccount() {
     let uid = firebase.auth().currentUser.uid;
-    this.getUserByUID(uid).subscribe(list => {
-      if (list.length > 0)
-        this.database.object(`users/${list[0].$key}`).remove();
-    });
+    let user = firebase.auth().currentUser;
+    this.database.object(`users/${uid}`).remove();
+    this.database.object(`surveys/${uid}`).remove();
+    this.database.object(`goals/${uid}`).remove();
+    user.delete();
   }
 
+//do we need this?
   userExists(uid: string): Observable<boolean> {
     let userExist = this.getUserByUID(uid).map(data => !!data[0]);
     return userExist;
    }
 
+//do we need this?
    getUserByUID(userUID: string): FirebaseListObservable<any[]> {
      let userList = this.database.list(`users`, {query: {orderByChild: 'UID', equalTo: userUID}});
      return userList;
