@@ -62,7 +62,7 @@ export class UserProfileComponent implements OnInit, DoCheck {
   deleteSurvey(survey) {
     this.surveyService.deleteSurvey(survey, this.user)
     this.router.navigate(['user'])
-    // this.refresh();
+
   }
 
   refresh(): void {
