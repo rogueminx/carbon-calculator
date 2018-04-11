@@ -15,54 +15,16 @@ export class LineChartComponent implements OnInit, OnChanges {
     responsive: true
   };
   public lineChartColors:Array<any> = [
-    { // food
-      backgroundColor: '#D6AF66',
-      borderColor: '#000',
-    },
-    { // housing
-      backgroundColor: '#5F464B',
-      borderColor: '#000',
-    },
-    { // energy
-      backgroundColor: '#DD8663',
-      borderColor: '#000',
-
-    },
-    { // trash
-      backgroundColor: '#5C6D70',
-      borderColor: '#000',
-
-    },
-    { // transport
-      backgroundColor: '#C4BBAF',
-      borderColor: '#000',
-
-    },
-    { // food Path
-      backgroundColor: '#F4D8A4',
-      borderColor: '#000',
-
-    },
-    { // housing Path
-      backgroundColor: '#937A7F',
-      borderColor: '#000',
-
-    },
-    { // energy Path
-      backgroundColor: '#F2B096',
-      borderColor: '#000',
-
-    },
-    { // trash Path
-      backgroundColor: '#9EA9AA',
-      borderColor: '#000',
-
-    },
-    { // transport Path
-      backgroundColor: '#F4EDE3',
-      borderColor: '#000',
-
-    }
+    { backgroundColor: '#D6AF66', borderColor: '#000' }, // food
+    { backgroundColor: '#5F464B', borderColor: '#000' },// housing
+    { backgroundColor: '#DD8663', borderColor: '#000' },// energy
+    { backgroundColor: '#5C6D70', borderColor: '#000' },// trash
+    { backgroundColor: '#C4BBAF', borderColor: '#000' },// transport
+    { backgroundColor: '#F4D8A4', borderColor: '#000' },// food Path
+    { backgroundColor: '#937A7F', borderColor: '#000' },// housing Path
+    { backgroundColor: '#F2B096', borderColor: '#000' },// energy Path
+    { backgroundColor: '#9EA9AA', borderColor: '#000' },// trash Path
+    { backgroundColor: '#F4EDE3', borderColor: '#000' }// transport Path
   ];
   public lineChartLegend:boolean = true;
   public lineChartType:string = 'line';

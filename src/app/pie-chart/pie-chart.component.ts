@@ -16,6 +16,7 @@ export class PieChartComponent implements OnInit, OnChanges {
     public pieChartType:string = 'doughnut';
     public pieChartLabels:string[] = ['Food', 'Housing', 'Energy', 'Trash', 'Transport'];
     public pieChartData:number[] = [0,0,0,0,0];
+    public lineChartColors = [{ backgroundColor: ['#D6AF66', '#5F464B', '#DD8663', '#5C6D70', '#C4BBAF'] }];
 
     public chartClicked(e:any):void {
       console.log(e);
