@@ -14,9 +14,6 @@ export class PieChartComponent implements OnInit, OnChanges {
   @Input() transport: number = 0;
 
     public pieChartType:string = 'doughnut';
-
-    // Pie
-<<<<<<< HEAD
     public pieChartLabels:string[] = ['Food', 'Housing', 'Energy', 'Trash', 'Transport'];
     public pieChartData:number[] = [0,0,0,0,0];
 
@@ -33,14 +30,6 @@ export class PieChartComponent implements OnInit, OnChanges {
     public chartHovered(e:any):void {
       console.log(e);
     }
-=======
-    public pieChartLabels:string[] = ['Transport', 'Food', 'Housing'];
-    public pieChartData:number[] = [0,0,0];
-
-    ngOnChanges() {
-      this.pieChartData = [this.transport, this.food, this.housing];
-    } 
->>>>>>> master
 
     ngOnInit() {
       this.ngOnChanges();
