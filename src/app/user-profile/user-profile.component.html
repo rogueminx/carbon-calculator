@@ -1,5 +1,5 @@
 <ul>
-  <li *ngFor="let survey of userSurveys">Your total CO2 output for the survey taken on {{survey.date}} is: {{survey.totalCo2}}</li>
+  <li *ngFor="let survey of userSurveys">Your total CO2 output for the survey taken on {{survey?.date}} is: {{survey?.totalCo2}}</li>
 </ul>
 
 <button type="button" (click)='deleteAccount()' class="btn btn-danger">Delete Account</button>
