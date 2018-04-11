@@ -9,9 +9,22 @@
   <app-line-chart class="col-md-6" *ngIf="renderLineChart && userSurveys.length > 0" [childUserSurveys]="userSurveys"></app-line-chart>
   <div class="content col-md-6">
     <div *ngIf="showSurveys">
-      <ul>
-        <li *ngFor="let survey of userSurveys">Your total CO2 output for the survey taken on {{survey?.date}} is: {{survey?.totalCo2}}</li>
-      </ul>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Date of Survey</th>
+            <th>Tons of C02/year</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let survey of userSurveys">
+            <td>{{survey?.date}}</td>
+            <td>{{survey?.totalCo2}}</td>
+            <td><span (click)="deleteSurvey(survey)" class="glyphicon glyphicon-remove"></span>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <div *ngIf="showTips">
       <p>I'm data about how you can improve your worthless existence</p>

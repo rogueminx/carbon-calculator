@@ -10,7 +10,7 @@ export class LineChartComponent implements OnInit, OnChanges {
   @Input() childUserSurveys: Survey[];
   // lineChart
   public lineChartData:Array<any>;
-  public lineChartLabels:Array<any>;
+  public lineChartLabels:Array<any> = [];
   public lineChartOptions:any = {
     responsive: true
   };
@@ -81,7 +81,8 @@ export class LineChartComponent implements OnInit, OnChanges {
       let trash = this.childUserSurveys.map(survey => survey.trashCo2+survey.energyCo2+survey.housingCo2+survey.foodCo2);
       let transport = this.childUserSurveys.map(survey => survey.transportCo2+survey.trashCo2+survey.energyCo2+survey.housingCo2+survey.foodCo2);
 
-      const surveys: number = this.childUserSurveys.length
+      let surveys: number = this.childUserSurveys.length
+      console.log("the number of surveys available" + surveys);
       let foodPath = new Array(surveys - 1).fill(null).concat([food[surveys - 1], 1])
       let housingPath = new Array(surveys - 1).fill(null).concat([housing[surveys - 1], 2])
       let energyPath = new Array(surveys - 1).fill(null).concat([energy[surveys - 1], 3])
@@ -101,17 +102,21 @@ export class LineChartComponent implements OnInit, OnChanges {
         {data: transportPath, label: 'Transport Path'},
         // {data: new Array(this.childUserSurveys.length).fill(null).concat()}
       ];
-      this.lineChartLabels = this.childUserSurveys.map(survey => survey.date).concat(['Goal']);
+      this.lineChartLabels.length = 0;
+      this.childUserSurveys.forEach(survey => {
+        this.lineChartLabels.push(survey.date);
+      });
+      this.lineChartLabels.push('Goals');
     }
 
   }
 
   // events
   public chartClicked(e:any):void {
-    console.log(e);
+    // console.log(e);
   }
 
   public chartHovered(e:any):void {
-    console.log(e);
+    // console.log(e);
   }
 }
