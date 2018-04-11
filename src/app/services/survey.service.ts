@@ -18,8 +18,8 @@ export class SurveyService {
     this.database.list(`surveys/${user.uid}`).push(newSurvey);
   }
 
-  getSurveysByUID(user: firebase.User) {
-    return this.database.list(`surveys/${user.uid}`);
+  getSurveysByUID(uid:string) {
+    return this.database.list(`surveys/${uid}`);
   }
 
   saveGoal(newSurvey: Survey, user: firebase.User) {
