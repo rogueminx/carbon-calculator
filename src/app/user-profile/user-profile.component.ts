@@ -18,10 +18,13 @@ export class UserProfileComponent implements OnInit, DoCheck {
   ngOnInit() {
     this.authService.user.subscribe(user => {
       this.user = user
-      this.surveyService.getSurveysByUID(this.user).subscribe(dataLastEmittedFromObserver => {
-        this.userSurveys = dataLastEmittedFromObserver;
-        this.renderLineChart = true;
-      })
+      if (this.user) {
+        this.surveyService.getSurveysByUID(this.user.uid).subscribe(dataLastEmittedFromObserver => {
+          this.userSurveys = dataLastEmittedFromObserver;
+          this.renderLineChart = true;
+        });
+      }
+
     });
 
   }
@@ -36,8 +39,8 @@ export class UserProfileComponent implements OnInit, DoCheck {
 
   deleteAccount() {
     if (confirm("Are you sure you'd like to delete your account?")) {
-      this.authService.deleteAccount();
       this.router.navigate(['']);
+      this.authService.deleteAccount();
     }
   }
 }
