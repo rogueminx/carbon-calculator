@@ -1,4 +1,4 @@
-<ul>
+<ul *ngIf="user">
   <li *ngFor="let survey of userSurveys">Your total CO2 output for the survey taken on {{survey?.date}} is: {{survey?.totalCo2}}</li>
 </ul>
 
