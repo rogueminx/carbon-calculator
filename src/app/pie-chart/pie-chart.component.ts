@@ -14,8 +14,6 @@ export class PieChartComponent implements OnInit, OnChanges {
   @Input() transport: number = 0;
 
     public pieChartType:string = 'doughnut';
-
-    // Pie
     public pieChartLabels:string[] = ['Food', 'Housing', 'Energy', 'Trash', 'Transport'];
     public pieChartData:number[] = [0,0,0,0,0];
 
