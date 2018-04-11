@@ -25,22 +25,28 @@ export class SurveyComponent implements OnInit {
     this.openSurvey.calculate;
     this.authService.user.subscribe(user => {
       this.user = user;
-      // if (user) {
-      //     this.userId = user.uid;
-      // }
     });
+    console.log(this.router.url);
 
   }
   submitSurvey() {
-    if (this.user) {
-      this.surveyService.saveSurvey(this.openSurvey, this.user);
+    if (this.router.url == "/survey/goal") {
+      this.surveyService.saveGoal(this.openSurvey, this.user);
       this.openSurvey = new Survey();
       this.router.navigate(['user']);
-    } else {
-      this.openSurvey.keepSurvey();
-      this.router.navigate(['login']);
+    }else {
+      if (this.user) {
+        this.surveyService.saveSurvey(this.openSurvey, this.user);
+        this.openSurvey = new Survey();
+        this.router.navigate(['user']);
+      } else {
+        this.openSurvey.keepSurvey();
+        this.router.navigate(['login']);
+      }
     }
   }
+
+
 
   foodChange(animalProductCo2) {
     // console.log("hey");

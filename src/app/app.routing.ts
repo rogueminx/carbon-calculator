@@ -26,6 +26,10 @@ const appRoutes: Routes = [
   {
     path: 'survey',
     component: SurveyComponent
+  },
+  {
+    path: 'survey/goal',
+    component: SurveyComponent
   }
 ];
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

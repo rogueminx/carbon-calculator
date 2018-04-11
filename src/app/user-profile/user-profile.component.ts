@@ -27,7 +27,7 @@ export class UserProfileComponent implements OnInit, DoCheck {
   }
 
   setGoals() {
-
+    this.router.navigate(['survey', 'goal']);
   }
 
   deleteAccount() {
