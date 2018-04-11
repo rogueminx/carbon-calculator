@@ -15,6 +15,7 @@ import { AccountStatusComponent } from './account-status/account-status.componen
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { LineChartComponent } from './line-chart/line-chart.component';
 
 
 export const firebaseConfig = {
@@ -35,7 +36,8 @@ export const firebaseConfig = {
     RegistrationComponent,
     AccountStatusComponent,
     UserProfileComponent,
-    PieChartComponent
+    PieChartComponent,
+    LineChartComponent
   ],
   imports: [
     BrowserModule,
