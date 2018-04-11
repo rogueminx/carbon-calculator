@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Survey } from '../models/survey.model';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import * as firebase from 'firebase/app';
 
 @Injectable()
 export class SurveyService {
@@ -11,9 +12,11 @@ export class SurveyService {
   this.surveys = database.list('surveys');
  }
 
-  saveSurvey(newSurvey: Survey){
+//take user or useriD?
+  saveSurvey(newSurvey: Survey, user: firebase.User){
     //this will need to be saved to be per user
-    this.surveys.push(newSurvey);
+    console.log(user.uid);
+    this.database.list(`surveys/${user.uid}`).push(newSurvey);
   }
 
 }

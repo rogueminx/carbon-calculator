@@ -1,26 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { SurveyService } from '../services/survey.service';
 import { Survey } from '../models/survey.model';
+import { AuthenticationService } from '../services/authentication.service';
+import { UserService } from '../services/user.service';
 
 
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css'],
-  providers: [SurveyService]
+  providers: [SurveyService, AuthenticationService, UserService]
 })
 export class WelcomeComponent implements OnInit {
   flown: number;
   test:number = 100;
   openSurvey: Survey = new Survey()
-  constructor(private surveyService: SurveyService) { }
+  // userId: string;
+  user;
+  constructor(private surveyService: SurveyService, private authService: AuthenticationService, private userService: UserService) { }
 
   ngOnInit() {
     this.openSurvey.calculate;
+    this.authService.user.subscribe(user => {
+      this.user = user;
+      // if (user) {
+      //     this.userId = user.uid;
+      // }
+    });
+
   }
   submitSurvey() {
-    // this.surveyService.saveSurvey(this.openSurvey);
-    // this.openSurvey = new Survey();
+    this.surveyService.saveSurvey(this.openSurvey, this.user);
+    this.openSurvey = new Survey();
   }
 
   foodChange(animalProductCo2) {
