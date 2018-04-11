@@ -17,4 +17,12 @@ img {
 
 .list-inline {
   display: inline;
+  vertical-align: baseline;
+}
+
+.nav-item {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
 }
