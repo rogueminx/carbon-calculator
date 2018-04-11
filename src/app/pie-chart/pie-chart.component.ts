@@ -7,19 +7,40 @@ import { Component, Input, OnInit, OnChanges } from '@angular/core';
 })
 export class PieChartComponent implements OnInit, OnChanges {
 
-  @Input() transport:number = 0;
-  @Input() food:number = 0;
-  @Input() housing:number = 0;
+  @Input() food: number = 0;
+  @Input() housing: number = 0;
+  @Input() energy: number = 0;
+  @Input() trash: number = 0;
+  @Input() transport: number = 0;
 
     public pieChartType:string = 'doughnut';
 
     // Pie
+<<<<<<< HEAD
+    public pieChartLabels:string[] = ['Food', 'Housing', 'Energy', 'Trash', 'Transport'];
+    public pieChartData:number[] = [0,0,0,0,0];
+
+    public chartClicked(e:any):void {
+      console.log(e);
+      this.ngOnChanges();
+    }
+
+    ngOnChanges() {
+      this.pieChartData = [this.food, this.housing, this.energy, this.trash, this.transport];
+      console.log('update');
+    }
+
+    public chartHovered(e:any):void {
+      console.log(e);
+    }
+=======
     public pieChartLabels:string[] = ['Transport', 'Food', 'Housing'];
     public pieChartData:number[] = [0,0,0];
 
     ngOnChanges() {
       this.pieChartData = [this.transport, this.food, this.housing];
     } 
+>>>>>>> master
 
     ngOnInit() {
       this.ngOnChanges();
