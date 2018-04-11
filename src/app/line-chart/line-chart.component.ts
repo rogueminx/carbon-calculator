@@ -15,45 +15,53 @@ export class LineChartComponent implements OnInit, OnChanges {
     responsive: true
   };
   public lineChartColors:Array<any> = [
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    { // food
+      backgroundColor: '#D6AF66',
+      borderColor: '#000',
     },
-    { // dark grey
-      backgroundColor: 'rgba(77,83,96,0.2)',
-      borderColor: 'rgba(77,83,96,1)',
-      pointBackgroundColor: 'rgba(77,83,96,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(77,83,96,1)'
+    { // housing
+      backgroundColor: '#5F464B',
+      borderColor: '#000',
     },
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    { // energy
+      backgroundColor: '#DD8663',
+      borderColor: '#000',
+
     },
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    { // trash
+      backgroundColor: '#5C6D70',
+      borderColor: '#000',
+
     },
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    { // transport
+      backgroundColor: '#C4BBAF',
+      borderColor: '#000',
+
+    },
+    { // food Path
+      backgroundColor: '#F4D8A4',
+      borderColor: '#000',
+
+    },
+    { // housing Path
+      backgroundColor: '#937A7F',
+      borderColor: '#000',
+
+    },
+    { // energy Path
+      backgroundColor: '#F2B096',
+      borderColor: '#000',
+
+    },
+    { // trash Path
+      backgroundColor: '#9EA9AA',
+      borderColor: '#000',
+
+    },
+    { // transport Path
+      backgroundColor: '#F4EDE3',
+      borderColor: '#000',
+
     }
   ];
   public lineChartLegend:boolean = true;
@@ -67,15 +75,35 @@ export class LineChartComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     if (this.childUserSurveys) {
+      let food = this.childUserSurveys.map(survey => survey.foodCo2);
+      let housing = this.childUserSurveys.map(survey => survey.housingCo2+survey.foodCo2);
+      let energy = this.childUserSurveys.map(survey => survey.energyCo2+survey.housingCo2+survey.foodCo2);
+      let trash = this.childUserSurveys.map(survey => survey.trashCo2+survey.energyCo2+survey.housingCo2+survey.foodCo2);
+      let transport = this.childUserSurveys.map(survey => survey.transportCo2+survey.trashCo2+survey.energyCo2+survey.housingCo2+survey.foodCo2);
+
+      const surveys: number = this.childUserSurveys.length
+      let foodPath = new Array(surveys - 1).fill(null).concat([food[surveys - 1], 1])
+      let housingPath = new Array(surveys - 1).fill(null).concat([housing[surveys - 1], 2])
+      let energyPath = new Array(surveys - 1).fill(null).concat([energy[surveys - 1], 3])
+      let trashPath = new Array(surveys - 1).fill(null).concat([trash[surveys - 1], 4])
+      let transportPath = new Array(surveys - 1).fill(null).concat([transport[surveys - 1], 5])
+
       this.lineChartData = [
-        {data: this.childUserSurveys.map(survey => survey.foodCo2), label: 'Food'},
-        {data: this.childUserSurveys.map(survey => survey.housingCo2+survey.foodCo2), label: 'Housing'},
-        {data: this.childUserSurveys.map(survey => survey.energyCo2+survey.housingCo2+survey.foodCo2), label: 'Energy'},
-        {data: this.childUserSurveys.map(survey => survey.trashCo2+survey.energyCo2+survey.housingCo2+survey.foodCo2), label: 'Trash'},
-        {data: this.childUserSurveys.map(survey => survey.transportCo2+survey.trashCo2+survey.energyCo2+survey.housingCo2+survey.foodCo2), label: 'Transport'}
+        {data: food, label: "Food"},
+        {data: housing, label: 'Housing'},
+        {data: energy, label: 'Energy'},
+        {data: trash, label: 'Trash'},
+        {data: transport, label: 'Transport'},
+        {data: foodPath, label: 'Food Path'},
+        {data: housingPath, label: 'Housing Path'},
+        {data: energyPath, label: 'Energy Path'},
+        {data: trashPath, label: 'Trash Path'},
+        {data: transportPath, label: 'Transport Path'},
+        // {data: new Array(this.childUserSurveys.length).fill(null).concat()}
       ];
-      this.lineChartLabels = this.childUserSurveys.map(survey => survey.date);
+      this.lineChartLabels = this.childUserSurveys.map(survey => survey.date).concat(['Goal']);
     }
+
   }
 
   // events
