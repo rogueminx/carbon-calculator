@@ -35,7 +35,7 @@ export class PieChartComponent implements OnInit, OnChanges {
 
     ngOnInit() {
       this.ngOnChanges();
-      this.pieChartData = [this.food, this.housing, this.energy, this.trash, this.transport];
+      // this.pieChartData = [this.food, this.housing, this.energy, this.trash, this.transport];
 
     }
 

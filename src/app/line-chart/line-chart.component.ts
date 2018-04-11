@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
+import { Survey } from '../models/survey.model';
 
 @Component({
   selector: 'app-line-chart',
@@ -6,15 +7,10 @@ import { Component, Input, OnInit, OnChanges } from '@angular/core';
   styleUrls: ['./line-chart.component.css']
 })
 export class LineChartComponent implements OnInit, OnChanges {
+  @Input() childUserSurveys: Survey[];
   // lineChart
-  public lineChartData:Array<any> = [
-    {data: [65, 59, 80, 40, null, null, null, null, null, null, null, null], label: 'Food'},
-    {data: [28, 48, 40, 19, null, null, null, null, null, null, null, null, null], label: 'Housing'},
-    {data: [18, 48, 77, 9, null, null, null, null, null, null, null, null, null], label: 'Energy'},
-    {data: [18, 48, 77, 9, null, null, null, null, null, null, null, null, null], label: 'Trash'},
-    {data: [18, 48, 77, 9, null, null, null, null, null, null, null, null, null], label: 'Transport'}
-  ];
-  public lineChartLabels:Array<any> = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  public lineChartData:Array<any>;
+  public lineChartLabels:Array<any>;
   public lineChartOptions:any = {
     responsive: true
   };
@@ -63,23 +59,23 @@ export class LineChartComponent implements OnInit, OnChanges {
   public lineChartLegend:boolean = true;
   public lineChartType:string = 'line';
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
   ngOnChanges() {
-  }
-
-  public randomize():void {
-    let _lineChartData:Array<any> = new Array(this.lineChartData.length);
-    for (let i = 0; i < this.lineChartData.length; i++) {
-      _lineChartData[i] = {data: new Array(this.lineChartData[i].data.length), label: this.lineChartData[i].label};
-      for (let j = 0; j < this.lineChartData[i].data.length; j++) {
-        _lineChartData[i].data[j] = Math.floor((Math.random() * 100) + 1);
-      }
+    if (this.childUserSurveys) {
+      this.lineChartData = [
+        {data: this.childUserSurveys.map(survey => survey.foodCo2), label: 'Food'},
+        {data: this.childUserSurveys.map(survey => survey.housingCo2+survey.foodCo2), label: 'Housing'},
+        {data: this.childUserSurveys.map(survey => survey.energyCo2+survey.housingCo2+survey.foodCo2), label: 'Energy'},
+        {data: this.childUserSurveys.map(survey => survey.trashCo2+survey.energyCo2+survey.housingCo2+survey.foodCo2), label: 'Trash'},
+        {data: this.childUserSurveys.map(survey => survey.transportCo2+survey.trashCo2+survey.energyCo2+survey.housingCo2+survey.foodCo2), label: 'Transport'}
+      ];
+      this.lineChartLabels = this.childUserSurveys.map(survey => survey.date);
     }
-    this.lineChartData = _lineChartData;
   }
 
   // events

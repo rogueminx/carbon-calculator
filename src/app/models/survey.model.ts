@@ -53,12 +53,11 @@ export class Survey {
   hoursFlown: number = 6;
   transportCo2: number = 2.61;
 
-  totalCo2: number;
+  totalCo2: number = 12.71
 
   constructor() {}
 
   calculate() {
-
     this.foodCo2 = 2 + this.animalProductCo2;
 
     let squareFeetPerPerson = this.squareFeet / this.peopleInHome;
@@ -69,6 +68,4 @@ export class Survey {
 
     this.totalCo2 = this.foodCo2 + this.housingCo2 + this.transportCo2;
   }
-
-
 }
