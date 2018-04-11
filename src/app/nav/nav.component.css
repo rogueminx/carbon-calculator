@@ -11,3 +11,9 @@
 li {
   list-style: none;
 }
+
+.navbar {
+  background-color: #0D343A;
+  color: #C4BBAF;
+  height: 75px;
+}
