@@ -15,12 +15,16 @@ export class SurveyService {
  }
 
   saveSurvey(newSurvey: Survey, user: firebase.User){
-    console.log(user.uid);
     this.database.list(`surveys/${user.uid}`).push(newSurvey);
   }
 
   getSurveysByUID(user: firebase.User) {
     return this.database.list(`surveys/${user.uid}`);
+  }
+
+  saveGoal(newSurvey: Survey, user: firebase.User) {
+    this.database.object(`goals/${user.uid}`).update(newSurvey)
+    console.log('its a goal!')
   }
 
 }
