@@ -41,7 +41,6 @@ export class WelcomeComponent implements OnInit {
     this.openSurvey.calculate();
     console.log("updatehousing")
     console.log(this.openSurvey.transportCo2);
-
   }
 
   transportationChange(vehicleMiles, milesPerGallon, publicMiles, hoursFlown) {

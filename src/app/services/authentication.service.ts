@@ -21,12 +21,16 @@ export class AuthenticationService {
       if(signedInUser) {
         let uid = firebase.auth().currentUser.uid;
         this.authenticatedUserUID = uid;
-        this.userExists(uid).subscribe(user => {
-          if (!user) {
-            const newUser = new User (signedInUser.user.displayName, signedInUser.user.uid, signedInUser.user.email);
+        let subscription = this.getUserByUID(uid).subscribe(data => {
+          if (data.length == 0) {
+            const newUser = new User (signedInUser.user.displayName + ' test', signedInUser.user.uid, signedInUser.user.email);
             this.pushUserToDatabase(newUser);
+            console.log('creating user');
+          } else {
+            console.log('IT WORKS');
           }
-        })
+          subscription.unsubscribe();
+        });
       }
     });
   }
@@ -42,11 +46,12 @@ export class AuthenticationService {
         this.authenticatedUserUID = uid;
         signedInUser.sendEmailVerification();
         signedInUser.updateProfile({displayName:displayName});
-        this.userExists(uid).subscribe(user => {
+        let subscription = this.userExists(uid).subscribe(user => {
           if (!user) {
             const newUser = new User (displayName, this.authenticatedUserUID, email);
             this.pushUserToDatabase(newUser);
           }
+          subscription.unsubscribe();
         })
       }
     });
