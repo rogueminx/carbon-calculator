@@ -23,11 +23,9 @@ export class AuthenticationService {
         this.authenticatedUserUID = uid;
         let subscription = this.getUserByUID(uid).subscribe(data => {
           if (data.length == 0) {
-            const newUser = new User (signedInUser.user.displayName + ' test', signedInUser.user.uid, signedInUser.user.email);
+            const newUser = new User (signedInUser.user.displayName, signedInUser.user.uid, signedInUser.user.email);
             this.pushUserToDatabase(newUser);
-            console.log('creating user');
-          } else {
-            console.log('IT WORKS');
+            console.log(newUser)
           }
           subscription.unsubscribe();
         });
@@ -66,17 +64,22 @@ export class AuthenticationService {
   }
 
   deleteAccount() {
-    firebase.auth().currentUser.delete();
-    console.log(this.authenticatedUserUID);
-    // let userinDB = this.getUserByUID(this.authenticatedUserUID);
-    // userinDB.remove();
+    let uid = firebase.auth().currentUser.uid;
+    this.getUserByUID(uid).subscribe(list => {
+      if (list.length > 0)
+        this.database.object(`users/${list[0].$key}`).remove();
+    });
   }
 
   userExists(uid: string): Observable<boolean> {
-    return this.getUserByUID(uid).map(data => !!data[0]);
+    let userExist = this.getUserByUID(uid).map(data => !!data[0]);
+    return userExist;
    }
 
    getUserByUID(userUID: string): FirebaseListObservable<any[]> {
-     return this.database.list(`users`, {query: {orderByChild: 'UID', equalTo: userUID}});
+     let userList = this.database.list(`users`, {query: {orderByChild: 'UID', equalTo: userUID}});
+     return userList;
    }
+
+
 }
