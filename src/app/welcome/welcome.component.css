@@ -2,14 +2,38 @@
   display: flex;
   flex-direction: row;
   vertical-align: baseline;
-  width: 75%;
-}
-
-.slider {
-  width: 60% !important;
 }
 
 .slider-label {
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.survey {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.question1 {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.question2 {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.pie-chart {
+  width: 80%;
+  margin-bottom: 20px;
+  align-self: center;
+}
+
+.main-calc-btn {
+  width: 150px !important;
+  align-self: center;
 }
