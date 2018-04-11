@@ -27,4 +27,8 @@ export class SurveyService {
     console.log('its a goal!')
   }
 
+  deleteSurvey(survey, user: firebase.User) {
+    this.database.object(`surveys/${user.uid}/${survey.$key}`).remove()
+  }
+
 }

@@ -56,6 +56,17 @@ export class UserProfileComponent implements OnInit, DoCheck {
   clickedShowSurveys() {
     this.showTips=false;
     this.showSurveys=true;
+    console.log(this.userSurveys)
+  }
+
+  deleteSurvey(survey) {
+    this.surveyService.deleteSurvey(survey, this.user)
+    this.router.navigate(['user'])
+
+  }
+
+  refresh(): void {
+    window.location.reload();
   }
 
 
