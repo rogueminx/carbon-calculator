@@ -1,97 +1,125 @@
-<<<<<<< HEAD
-=======
 
->>>>>>> aeef30cf3c9532b23a4ed23bbcb832e8e245d926
 <div class="survey">
-<div class="question form-group">
-  <label>How often do you eat animal based products? (eggs, dairy, meat)</label>
-  <br>
-  <div id="slider-box">
-    <label class="slider-label">Never</label>
-    <br>
-    <input #animalProductCo2 (change)="foodChange(animalProductCo2.value)" class="slider "type="range" min="0" value="1.5" max="3" step="0.01">
-    <br>
-    <label class="slider-label">Meat Daily</label>
-  </div>
-  <label>What is the size of your house?</label>
-  <br>
-  <div id="slider-box">
-    <label class="slider-label">50 sq ft</label>
-    <br>
-    <input #squareFeet (change)="housingChange(squareFeet.value, peopleInHome.value, energyCo2.value, trashCo2.value)" class="slider "type="range" min="50" value="2000" max="15000" step="0.01">
-    <br>
-    <label class="slider-label">15,000 sq ft</label>
-  </div>
-  <label>How many people live in your household?</label>
-  <br>
-  <div id="slider-box">
-    <label class="slider-label">Just you</label>
-    <br>
-    <input #peopleInHome (change)="housingChange(squareFeet.value, peopleInHome.value, energyCo2.value, trashCo2.value)" class="slider "type="range" min="1" value="2" max="10" step="1">
-    <br>
-    <label class="slider-label">10 people</label>
+
+  <div class="pie-chart">
+    <div class="pie-link">
+      <app-pie-chart
+      [transport]='openSurvey.transportCo2'
+      [food]='openSurvey.foodCo2'
+      [housing]='openSurvey.housingCo2'
+      [trash]='openSurvey.trashCo2'
+      [energy]='openSurvey.energyCo2'
+      ></app-pie-chart>
+    </div>
   </div>
 
-  <label>How energy efficient is your home?</label>
-  <br>
-  <div id="slider-box">
-    <label class="slider-label">Very</label>
-    <br>
-    <input #energyCo2 (change)="housingChange(squareFeet.value, peopleInHome.value, energyCo2.value, trashCo2.value)" class="slider "type="range" min="0" value="3" max="7" step="0.01">
-    <br>
-    <label class="slider-label">Hardly</label>
+  <div class="question1 form-group">
+    <div class="question-box">
+      <label>How often do you eat animal based products? (eggs, dairy, meat)</label>
+      <br>
+      <div id="slider-box">
+        <label class="slider-label">Never</label>
+        <br>
+        <input #animalProductCo2 (change)="foodChange(animalProductCo2.value)" class="slider "type="range" min="0" value="1.5" max="3" step="0.01">
+        <br>
+        <label class="slider-label">Meat Daily</label>
+      </div>
+    </div>
+    <div class="question-box">
+      <label>What is the size of your house?</label>
+      <br>
+      <div id="slider-box">
+        <label class="slider-label">50 sq ft</label>
+        <br>
+        <input #squareFeet (change)="housingChange(squareFeet.value, peopleInHome.value, energyCo2.value, trashCo2.value)" class="slider "type="range" min="50" value="2000" max="15000" step="0.01">
+        <br>
+        <label class="slider-label">15,000 sq ft</label>
+      </div>
+    </div>
+    <div class="question-box">
+      <label>How many people live in your household?</label>
+      <br>
+      <div id="slider-box">
+        <label class="slider-label">Just you</label>
+        <br>
+        <input #peopleInHome (change)="housingChange(squareFeet.value, peopleInHome.value, energyCo2.value, trashCo2.value)" class="slider "type="range" min="1" value="2" max="10" step="1">
+        <br>
+        <label class="slider-label">10 people</label>
+      </div>
+    </div>
+    <div class="question-box">
+      <label>How energy efficient is your home?</label>
+      <br>
+      <div id="slider-box">
+        <label class="slider-label">Very</label>
+        <br>
+        <input #energyCo2 (change)="housingChange(squareFeet.value, peopleInHome.value, energyCo2.value, trashCo2.value)" class="slider "type="range" min="0" value="3" max="7" step="0.01">
+        <br>
+        <label class="slider-label">Hardly</label>
+      </div>
+    </div>
+
   </div>
 
-  <label>Compared to your neighbors, how much trash do you generate?</label>
-  <br>
-  <div id="slider-box">
-    <label class="slider-label">Much Less</label>
-    <br>
-    <input #trashCo2 (change)="housingChange(squareFeet.value, peopleInHome.value, energyCo2.value, trashCo2.value)" class="slider "type="range" min="0" value="3" max="8" value="1" step="0.01">
-    <br>
-    <label class="slider-label">Much More</label>
-  </div>
+  <div class="question2 form-group">
+    <div class="question-box">
+      <label>Compared to your neighbors, how much trash do you generate?</label>
+      <br>
+      <div id="slider-box">
+        <label class="slider-label">Much Less</label>
+        <br>
+        <input #trashCo2 (change)="housingChange(squareFeet.value, peopleInHome.value, energyCo2.value, trashCo2.value)" class="slider "type="range" min="0" value="3" max="8" value="1" step="0.01">
+        <br>
+        <label class="slider-label">Much More</label>
+      </div>
+    </div>
+    <div class="question-box">
+      <label>How far do you travel by car/motorcyle per week?</label>
+      <br>
+      <div id="slider-box">
+        <label class="slider-label">Not Far</label>
+        <br>
+        <input #vehicleMiles (change)="transportationChange(vehicleMiles.value, milesPerGallon.value, publicMiles.value, milesFlown.value)" class="slider "type="range" min="0" value="120" max="500" step="0.01">
+        <br>
+        <label class="slider-label">Very Far</label>
+      </div>
+    </div>
+    <div class="question-box">
+      <label>What is the average fuel economy of the vehicle you use most?</label>
+      <br>
+      <div id="slider-box">
+        <label class="slider-label">Inefficient</label>
+        <br>
+        <input #milesPerGallon (change)="transportationChange(vehicleMiles.value, milesPerGallon.value, publicMiles.value, milesFlown.value)" class="slider "type="range" min="10" value="30" max="150" step="0.01">
+        <br>
+        <label class="slider-label">Efficient / Electric</label>
+      </div>
+    </div>
+    <div class="question-box">
+      <label>How far to you travel on public transportation every week?</label>
+      <br>
+      <div id="slider-box">
+        <label class="slider-label">Not Far</label>
+        <br>
+        <input #publicMiles (change)="transportationChange(vehicleMiles.value, milesPerGallon.value, publicMiles.value, milesFlown.value)" class="slider "type="range" min="0" value="21" max="500" step="0.01">
+        <br>
+        <label class="slider-label">Very Far</label>
+      </div>
+    </div>
+    <div class="question-box">
+      <label>How many hours do you fly every year?</label>
+      <br>
+      <div id="slider-box">
+        <label class="slider-label">None</label>
+        <br>
+        <input #milesFlown (change)="transportationChange(vehicleMiles.value, milesPerGallon.value, publicMiles.value, milesFlown.value)" class="slider " type="range" min="0" value="6" max="200" step="0.01">
+        <br>
+        <label class="slider-label">Many</label>
+      </div>
+    </div>
 
-  <label>How far do you travel by car/motorcyle per week?</label>
-  <br>
-  <div id="slider-box">
-    <label class="slider-label">Not Far</label>
-    <br>
-    <input #vehicleMiles (change)="transportationChange(vehicleMiles.value, milesPerGallon.value, publicMiles.value, milesFlown.value)" class="slider "type="range" min="0" value="120" max="500" step="0.01">
-    <br>
-    <label class="slider-label">Very Far</label>
   </div>
-
-  <label>What is the average fuel economy of the vehicle you use most?</label>
-  <br>
-  <div id="slider-box">
-    <label class="slider-label">Inefficient</label>
-    <br>
-    <input #milesPerGallon (change)="transportationChange(vehicleMiles.value, milesPerGallon.value, publicMiles.value, milesFlown.value)" class="slider "type="range" min="10" value="30" max="150" step="0.01">
-    <br>
-    <label class="slider-label">Efficient / Electric</label>
-  </div>
-
-  <label>How far to you travel on public transportation every week?</label>
-  <br>
-  <div id="slider-box">
-    <label class="slider-label">Not Far</label>
-    <br>
-    <input #publicMiles (change)="transportationChange(vehicleMiles.value, milesPerGallon.value, publicMiles.value, milesFlown.value)" class="slider "type="range" min="0" value="21" max="500" step="0.01">
-    <br>
-    <label class="slider-label">Very Far</label>
-  </div>
-
-  <label>How many hours do you fly every year?</label>
-  <br>
-  <div id="slider-box">
-    <label class="slider-label">None</label>
-    <br>
-    <input #milesFlown (change)="transportationChange(vehicleMiles.value, milesPerGallon.value, publicMiles.value, milesFlown.value)" class="slider " type="range" min="0" value="6" max="200" step="0.01">
-    <br>
-    <label class="slider-label">Many</label>
-  </div>
-  <button type="btn btn-default" (click)="submitSurvey()">Calculate</button>
+    <button class="main-calc-btn" type="btn btn-default" (click)="submitSurvey()">Calculate</button>
 </div>
 
 </div>
