@@ -3,6 +3,7 @@ import { SurveyService } from '../services/survey.service';
 import { Survey } from '../models/survey.model';
 import { AuthenticationService } from '../services/authentication.service';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,6 +11,7 @@ import { UserService } from '../services/user.service';
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css'],
   providers: [SurveyService, AuthenticationService, UserService]
+
 })
 export class WelcomeComponent implements OnInit {
   flown: number;
@@ -17,7 +19,7 @@ export class WelcomeComponent implements OnInit {
   openSurvey: Survey = new Survey()
   // userId: string;
   user;
-  constructor(private surveyService: SurveyService, private authService: AuthenticationService, private userService: UserService) { }
+  constructor(private surveyService: SurveyService, private authService: AuthenticationService, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.openSurvey.calculate;
@@ -30,8 +32,15 @@ export class WelcomeComponent implements OnInit {
 
   }
   submitSurvey() {
-    this.surveyService.saveSurvey(this.openSurvey, this.user);
-    this.openSurvey = new Survey();
+    if (this.user) {
+      this.surveyService.saveSurvey(this.openSurvey, this.user);
+      this.openSurvey = new Survey();
+      this.router.navigate(['user']);
+    } else {
+      this.openSurvey.keepSurvey();
+      this.router.navigate(['login']);
+    }
+
   }
 
   foodChange(animalProductCo2) {

@@ -33,6 +33,7 @@
 // }
 
 export class Survey {
+  static currentSurvey: Survey;
   date: string = new Date().toISOString().split("T")[0];
   userId: string;
 
@@ -70,5 +71,8 @@ export class Survey {
     this.totalCo2 = this.foodCo2 + this.housingCo2 + this.transportCo2;
   }
 
-
+  keepSurvey() {
+    Survey.currentSurvey = this;
+    console.log(Survey.currentSurvey);
+  }
 }
