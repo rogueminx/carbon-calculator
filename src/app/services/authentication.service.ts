@@ -46,11 +46,12 @@ export class AuthenticationService {
         this.authenticatedUserUID = uid;
         signedInUser.sendEmailVerification();
         signedInUser.updateProfile({displayName:displayName});
-        this.userExists(uid).subscribe(user => {
+        let subscription = this.userExists(uid).subscribe(user => {
           if (!user) {
             const newUser = new User (displayName, this.authenticatedUserUID, email);
             this.pushUserToDatabase(newUser);
           }
+          subscription.unsubscribe();
         })
       }
     });
