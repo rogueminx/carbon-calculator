@@ -67,7 +67,7 @@ export class Survey {
     let gallonsPerWeek = this.vehicleMiles / this.milesPerGallon;
     this.transportCo2 = gallonsPerWeek*.4 + this.publicMiles*.01 + this.hoursFlown*.1;
 
-    this.totalCo2 = this.foodCo2 + this.housingCo2 + this.transportCo2;
+    this.totalCo2 = this.foodCo2 + this.housingCo2 + energyCo2 + trashCo2 + this.transportCo2;
   }
 
   keepSurvey() {
