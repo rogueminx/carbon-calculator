@@ -1,5 +1,6 @@
 .navbar-brand {
-  font-size: 40px;
+  font-size: 50px;
+  font-family: 'Quicksand', sans-serif;
 }
 
 /*nav {
@@ -10,9 +11,3 @@
 li {
   list-style: none;
 }
-
-.nav-item {
-  margin-left: 10px;
-  margin-right: 10px;
-}
- 
