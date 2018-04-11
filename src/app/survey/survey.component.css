@@ -1,0 +1,15 @@
+#slider-box {
+  display: flex;
+  flex-direction: row;
+  vertical-align: baseline;
+  width: 75%;
+}
+
+.slider {
+  width: 60% !important;
+}
+
+.slider-label {
+  margin-left: 10px;
+  margin-right: 10px;
+}
