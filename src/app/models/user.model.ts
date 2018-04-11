@@ -1,6 +1,6 @@
 export class User {
   surveys;
-  goals
+  goals;
 
   constructor(public name:string, public UID: string, public email:string) {}
 }
