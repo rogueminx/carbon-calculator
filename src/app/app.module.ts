@@ -16,6 +16,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { SurveyComponent } from './survey/survey.component';
+import { LineChartComponent } from './line-chart/line-chart.component';
 
 
 export const firebaseConfig = {
@@ -37,7 +38,8 @@ export const firebaseConfig = {
     AccountStatusComponent,
     UserProfileComponent,
     PieChartComponent,
-    SurveyComponent
+    SurveyComponent,
+    LineChartComponent
   ],
   imports: [
     BrowserModule,

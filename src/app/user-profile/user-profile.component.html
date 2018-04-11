@@ -5,3 +5,5 @@
 <button type="button" (click)='setGoals()' class="btn btn-success btn-lg">Set A Goal</button>
 
 <button type="button" (click)='deleteAccount()' class="btn btn-danger">Delete Account</button>
+
+<app-line-chart *ngIf="renderLineChart" [childUserSurveys]="userSurveys"></app-line-chart>

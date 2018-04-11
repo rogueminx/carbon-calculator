@@ -12,12 +12,16 @@ import { SurveyService } from '../services/survey.service';
 export class UserProfileComponent implements OnInit, DoCheck {
   user;
   userSurveys;
+  renderLineChart: boolean = false;
   constructor(private router:Router, private authService: AuthenticationService, private surveyService: SurveyService) { }
 
   ngOnInit() {
     this.authService.user.subscribe(user => {
       this.user = user
-      this.surveyService.getSurveysByUID(this.user).subscribe(dataLastEmittedFromObserver => this.userSurveys = dataLastEmittedFromObserver)
+      this.surveyService.getSurveysByUID(this.user).subscribe(dataLastEmittedFromObserver => {
+        this.userSurveys = dataLastEmittedFromObserver;
+        this.renderLineChart = true;
+      })
     });
 
   }

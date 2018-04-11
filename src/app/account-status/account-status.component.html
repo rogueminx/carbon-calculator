@@ -1,7 +1,7 @@
 <div class="status d-flex">
   <ul *ngIf='user' class="nav navbar-nav list-inline">
     <li class='nav-item'><a href="#" routerLink="/user">{{user.displayName}}</a></li>
-    <li class='nav-item'><img routerLink="/user" src="{{user.photoURL}}" alt=""></li>
+    <li class='nav-item user-image'><img routerLink="/user" src="{{user.photoURL}}" alt=""></li>
     <li class="nav-item" (click)="logout()"><a href="#">Sign out</a></li>
   </ul>
 
