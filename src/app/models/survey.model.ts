@@ -37,11 +37,10 @@ export class Survey {
     this.trashCo2 = parseFloat(this.trash);
 
     let gallonsPerWeek = parseFloat(this.vehicleMiles) / parseFloat(this.milesPerGallon);
-    this.transportCo2 = gallonsPerWeek*.4 + this.publicMiles*.01 + this.hoursFlown*.1;
+    this.transportCo2 = gallonsPerWeek*.4 + parseFloat(this.publicMiles)*.01 + parseFloat(this.hoursFlown)*.1;
 
     let total = this.foodCo2 + this.housingCo2 + this.energyCo2 + this.trashCo2 + this.transportCo2;
     this.totalCo2 = Math.round(total * 10) / 10;
-    debugger
   }
 
   keepSurvey() {
