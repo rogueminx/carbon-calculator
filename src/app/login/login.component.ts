@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
         if (this.checkForSurveys()) {
           this.router.navigate(['user'])
         } else {
-          this.router.navigate([''])
+          this.router.navigate(['survey'])
         }
       }
     })
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
         if (this.checkForSurveys()) {
           this.router.navigate(['user'])
         } else {
-          this.router.navigate([''])
+          this.router.navigate(['survey'])
         }
       }
     })
