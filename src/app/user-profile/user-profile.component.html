@@ -5,7 +5,7 @@
     </div>
     <div>
       <br>
-      <div class="col-md-3">
+      <div class="col-md-2">
         <br><br>
         <div id="food" class="well">
           <h5>Food</h5>
@@ -23,7 +23,7 @@
           <h5>Transport</h5>
         </div>
       </div>
-      <app-line-chart class="col-md-9" *ngIf="renderLineChart && userSurveys.length > 0" [childUserSurveys]="userSurveys" [childGoalSurvey]='userGoals'></app-line-chart>
+      <app-line-chart class="col-md-10" *ngIf="renderLineChart && userSurveys.length > 0" [childUserSurveys]="userSurveys" [childGoalSurvey]='userGoals'></app-line-chart>
     </div>
   </div>
   <div class="content col-md-6">
