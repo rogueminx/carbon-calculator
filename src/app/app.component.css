@@ -1,3 +1,7 @@
 .outlet-container {
   width: 100%;
 }
+
+.container-fluid {
+  max-width: 1900px;
+}
