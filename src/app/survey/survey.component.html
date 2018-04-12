@@ -10,117 +10,136 @@
       [energy]='openSurvey.energyCo2'
       ></app-pie-chart>
     </div>
+    <div id="caption">{{openSurvey.totalCo2}}</div>
+    <div id="sub-caption">Tonnes CO₂ / year</div>
   </div>
 
   <div class="question1 form-group">
-    <div class="question-box">
+    <div class="question-box" (mouseover)="mouseEnter('animalProduct')" >
       <div class="question-label">
         <label>How often do you eat animal based products? (eggs, dairy, meat)</label>
       </div>
       <div id="slider-box">
         <label class="slider-label">Never (vegan)</label>
         <br>
-        <input #animalProductCo2 (change)="foodChange(animalProductCo2.value)" class="slider "type="range" min="0" value="1.5" max="3" step="0.01">
+        <input [(ngModel)]="openSurvey.animalProduct" (change)="openSurvey.calculate()" class="slider "type="range" min="0" value="1.5" max="3" step="0.01">
         <br>
         <label class="slider-label">Meat Daily</label>
       </div>
+      <div class="subtext" *ngIf="currentQuestion == 'animalProduct'">{{animalProductSubtext()}}</div>
     </div>
-    <div class="question-box">
+
+    <div class="question-box" (mouseover)="mouseEnter('squareFeet')">
       <div class="question-label">
         <label>What is the size of your house?</label>
       </div>
       <div id="slider-box">
         <label class="slider-label">50 sq ft</label>
         <br>
-        <input #squareFeet (change)="housingChange(squareFeet.value, peopleInHome.value, energyCo2.value, trashCo2.value)" class="slider "type="range" min="50" value="2000" max="15000" step="0.01">
+        <input [(ngModel)]="openSurvey.squareFeet" (change)="openSurvey.calculate()" class="slider "type="range" min="50" value="2000" max="15000" step="0.01">
         <br>
         <label class="slider-label">15,000 sq ft</label>
       </div>
+      <div class="subtext" *ngIf="currentQuestion == 'squareFeet'">{{squareFeetSubtext()}}</div>
     </div>
-    <div class="question-box">
+
+    <div class="question-box" (mouseover)="mouseEnter('peopleInHome')">
       <div class="question-label">
         <label>How many people live in your household?</label>
       </div>
       <div id="slider-box">
         <label class="slider-label">Just you</label>
         <br>
-        <input #peopleInHome (change)="housingChange(squareFeet.value, peopleInHome.value, energyCo2.value, trashCo2.value)" class="slider "type="range" min="1" value="2" max="10" step="1">
+        <input [(ngModel)]="openSurvey.peopleInHome" (change)="openSurvey.calculate()" class="slider "type="range" min="1" value="2" max="10" step="1">
         <br>
         <label class="slider-label">10 people</label>
       </div>
+      <div class="subtext" *ngIf="currentQuestion == 'peopleInHome'">{{peopleInHomeSubtext()}}</div>
     </div>
-    <div class="question-box">
+
+    <div class="question-box" (mouseover)="mouseEnter('energy')">
       <div class="question-label">
         <label class="question-label">How energy efficient is your home?</label>
       </div>
       <div id="slider-box">
         <label class="slider-label">Very</label>
         <br>
-        <input #energyCo2 (change)="housingChange(squareFeet.value, peopleInHome.value, energyCo2.value, trashCo2.value)" class="slider "type="range" min="0" value="3" max="7" step="0.01">
+        <input [(ngModel)]="openSurvey.energy" (change)="openSurvey.calculate()" class="slider "type="range" min="0" value="3" max="7" step="0.01">
         <br>
         <label class="slider-label">Hardly</label>
       </div>
+      <div class="subtext" *ngIf="currentQuestion == 'energy'">{{energySubtext()}}</div>
     </div>
 
-    <div class="question-box">
+    <div class="question-box" (mouseover)="mouseEnter('trash')">
       <div class="question-label">
         <label>Compared to your neighbors, how much trash do you generate?</label>
       </div>
       <div id="slider-box">
         <label class="slider-label">Much Less</label>
         <br>
-        <input #trashCo2 (change)="housingChange(squareFeet.value, peopleInHome.value, energyCo2.value, trashCo2.value)" class="slider "type="range" min="0" value="3" max="8" value="1" step="0.01">
+        <input [(ngModel)]="openSurvey.trash" (change)="openSurvey.calculate()" class="slider "type="range" min="0" value="3" max="8" value="1" step="0.01">
         <br>
         <label class="slider-label">Much More</label>
       </div>
+      <div class="subtext" *ngIf="currentQuestion == 'trash'">{{trashSubtext()}}</div>
     </div>
-    <div class="question-box">
+
+    <div class="question-box" (mouseover)="mouseEnter('vehicleMiles')">
       <div class="question-label">
         <label>How far do you travel by car/motorcyle per week?</label>
       </div>
       <div id="slider-box">
         <label class="slider-label">Not Far</label>
         <br>
-        <input #vehicleMiles (change)="transportationChange(vehicleMiles.value, milesPerGallon.value, publicMiles.value, milesFlown.value)" class="slider "type="range" min="0" value="120" max="500" step="0.01">
+        <input [(ngModel)]="openSurvey.vehicleMiles" (change)="openSurvey.calculate()" class="slider "type="range" min="0" value="120" max="500" step="1">
         <br>
         <label class="slider-label">Very Far</label>
       </div>
+      <div class="subtext" *ngIf="currentQuestion == 'vehicleMiles'">{{vehicleMilesSubtext()}}</div>
     </div>
-    <div class="question-box">
+
+    <div class="question-box" (mouseover)="mouseEnter('milesPerGallon')">
       <div class="question-label">
         <label>What is the average fuel economy of the vehicle you use most?</label>
       </div>
       <div id="slider-box">
         <label class="slider-label">Not efficient</label>
         <br>
-        <input #milesPerGallon (change)="transportationChange(vehicleMiles.value, milesPerGallon.value, publicMiles.value, milesFlown.value)" class="slider "type="range" min="10" value="30" max="150" step="0.01">
+        <input [(ngModel)]="openSurvey.milesPerGallon" (change)="openSurvey.calculate()" class="slider "type="range" min="10" value="30" max="150" step="1">
         <br>
         <label class="slider-label">Efficient / Electric</label>
       </div>
+      <div class="subtext" *ngIf="currentQuestion == 'milesPerGallon'">{{milesPerGallonSubtext()}}</div>
     </div>
-    <div class="question-box">
+
+    <div class="question-box" (mouseover)="mouseEnter('publicMiles')">
       <div class="question-label">
         <label>How far to you travel on public transportation every week?</label>
       </div>
       <div id="slider-box">
         <label class="slider-label">Not Far</label>
         <br>
-        <input #publicMiles (change)="transportationChange(vehicleMiles.value, milesPerGallon.value, publicMiles.value, milesFlown.value)" class="slider "type="range" min="0" value="21" max="500" step="0.01">
+        <input [(ngModel)]="openSurvey.publicMiles" (change)="openSurvey.calculate()" class="slider "type="range" min="0" value="21" max="500" step="1">
         <br>
         <label class="slider-label">Very Far</label>
       </div>
+      <div class="subtext" *ngIf="currentQuestion == 'publicMiles'">{{publicMilesSubtext()}}</div>
     </div>
-    <div class="question-box">
+
+    <div class="question-box" (mouseover)="mouseEnter('hoursFlown')">
       <div class="question-label">
         <label>How many hours do you fly every year?</label>
       </div>
       <div id="slider-box">
         <label class="slider-label">None</label>
         <br>
-        <input #milesFlown (change)="transportationChange(vehicleMiles.value, milesPerGallon.value, publicMiles.value, milesFlown.value)" class="slider " type="range" min="0" value="6" max="200" step="0.01">
+        <input [(ngModel)]="openSurvey.hoursFlown" (change)="openSurvey.calculate()" class="slider " type="range" min="0" value="6" max="200" step="1">
         <br>
         <label class="slider-label">Many</label>
       </div>
+      <div class="subtext" *ngIf="currentQuestion == 'hoursFlown'">{{hoursFlownSubtext()}}</div>
     </div>
-    <button class="main-calc-btn" type="btn btn-default" (click)="submitSurvey()">Save Survey</button>
+
+    <button class="main-calc-btn" type="btn btn-default" (click)="submitSurvey()">Calculate</button>
 </div>
