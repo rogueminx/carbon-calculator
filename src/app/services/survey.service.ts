@@ -22,6 +22,10 @@ export class SurveyService {
     return this.database.list(`surveys/${uid}`);
   }
 
+  getGoalsByUID(uid:string) {
+    return this.database.object(`goals/${uid}`);
+  }
+
   saveGoal(newSurvey: Survey, user: firebase.User) {
     this.database.object(`goals/${user.uid}`).update(newSurvey)
     console.log('its a goal!')

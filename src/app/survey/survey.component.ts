@@ -26,7 +26,6 @@ export class SurveyComponent implements OnInit {
     this.authService.user.subscribe(user => {
       this.user = user;
     });
-    console.log(this.router.url);
 
   }
   submitSurvey() {
@@ -54,7 +53,6 @@ export class SurveyComponent implements OnInit {
     this.openSurvey.animalProductCo2 = parseFloat(animalProductCo2);
 
     this.openSurvey.calculate();
-    console.log(this.openSurvey.transportCo2);
   }
 
   housingChange(squareFeet, peopleInHome, energyCo2, trashCo2) {
@@ -64,8 +62,6 @@ export class SurveyComponent implements OnInit {
     this.openSurvey.trashCo2 = parseFloat(trashCo2);
 
     this.openSurvey.calculate();
-    console.log("updatehousing")
-    console.log(this.openSurvey.transportCo2);
   }
 
   transportationChange(vehicleMiles, milesPerGallon, publicMiles, hoursFlown) {
@@ -75,8 +71,6 @@ export class SurveyComponent implements OnInit {
     this.openSurvey.hoursFlown = parseFloat(hoursFlown);
 
     this.openSurvey.calculate();
-    console.log("updatetransport")
-    console.log(this.openSurvey.transportCo2);
 
   }
 }
