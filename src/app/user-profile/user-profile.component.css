@@ -22,41 +22,76 @@
   background-color: #c4bbaf;
   text-align: center;
 }
-.border {
-  border-radius: 15px;
-  border-color: black;
+
+h5 {
+  margin: 0px;
+  padding: 0.2em;
+}
+
+.well {
+  margin: 0px;
+  padding: 0px;
+  width: 8em;
 }
 
 #goal-button {
-  background-image: url("/assets/images/1.jpg");
+  background-image: url("/assets/images/5.jpg");
   border-color: white;
   font-family: 'Quicksand', sans-serif;
+  font-size: 25px;
   color: white;
-  text-shadow: 2px 2px 5px black;
+  text-shadow: 4px 4px 5px black;
+  width: 50%;
+  height: 100px;
+}
+
+#goal-button:hover {
+  opacity: .9;
 }
 
 #take-survey-button {
-  background-image: url("/assets/images/2.jpg");
+  background-image: url("/assets/images/6.jpg");
   border-color: white;
   font-family: 'Quicksand', sans-serif;
+  font-size: 25px;
   color: white;
-  text-shadow: 2px 2px 5px black;
+  text-shadow: 4px 4px 5px black;
+  width: 50%;
+  height: 100px;
+}
+
+#take-survey-button:hover{
+  opacity: .9;
 }
 
 #tips-button {
-  background-image: url("/assets/images/3.jpg");
+  background-image: url("/assets/images/7.jpg");
   border-color: white;
   font-family: 'Quicksand', sans-serif;
+  font-size: 25px;
   color: white;
-  text-shadow: 2px 2px 5px black;
+  text-shadow: 4px 4px 5px black;
+  width: 50%;
+  height: 100px;
+}
+
+#tips-button:hover {
+  opacity: .9;
 }
 
 #show-survey-button {
-  background-image: url("/assets/images/4.jpg");
+  background-image: url("/assets/images/11.jpg");
   border-color: white;
   font-family: 'Quicksand', sans-serif;
+  font-size: 25px;
   color: white;
-  text-shadow: 2px 2px 5px black;
+  text-shadow: 4px 4px 5px black;
+  width: 50%;
+  height: 100px;
+}
+
+#show-survey-button:hover {
+  opacity: .9;
 }
 
 .button-row {
@@ -92,7 +127,7 @@ td, tr {
   color: #C4BBAF;
   text-align: center;
   border-radius: 15px 15px 0px 0px;
-  margin-top: 57px;
+
 }
 
 .tip-header {
