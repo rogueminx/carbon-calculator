@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   keptSurvey: Survey;
   constructor(public authService: AuthenticationService, public router: Router, public surveyService: SurveyService) { }
   user;
+  userSurveys;
 
   ngOnInit() {
     this.keptSurvey = Survey.currentSurvey;
@@ -29,10 +30,13 @@ export class LoginComponent implements OnInit {
           this.surveyService.saveSurvey(this.keptSurvey, this.user);
           Survey.currentSurvey = null;
         }
-        this.router.navigate(['user'])
+        if (this.checkForSurveys()) {
+          this.router.navigate(['user'])
+        } else {
+          this.router.navigate([''])
+        }
       }
     })
-
   }
 
   loginWithEmail(email, password) {
@@ -44,8 +48,25 @@ export class LoginComponent implements OnInit {
           this.surveyService.saveSurvey(this.keptSurvey, this.user);
           Survey.currentSurvey = null;
         }
-        this.router.navigate(['user'])
+        if (this.checkForSurveys()) {
+          this.router.navigate(['user'])
+        } else {
+          this.router.navigate([''])
+        }
       }
     })
+  }
+
+  checkForSurveys() {
+    if (this.user) {
+      this.surveyService.getSurveysByUID(this.user.uid).subscribe(dataLastEmittedFromObserver => {
+        this.userSurveys = dataLastEmittedFromObserver;
+      });
+      if (!this.userSurveys) {
+        return false;
+      } else {
+        return true;
+      }
+    }
   }
 }
