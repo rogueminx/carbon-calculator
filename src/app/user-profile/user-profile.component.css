@@ -1,0 +1,28 @@
+#food {
+  background-color: #d6af66;
+  text-align: center;
+}
+
+#housing {
+  background-color: #5f464b;
+  text-align: center;
+}
+
+#energy {
+  background-color: #dd8663;
+  text-align: center;
+}
+
+#trash {
+  background-color: #5c6d70;
+  text-align: center;
+}
+
+#transport {
+  background-color: #c4bbaf;
+  text-align: center;
+}
+.border {
+  border-radius: 15px;
+  border-color: black;
+}

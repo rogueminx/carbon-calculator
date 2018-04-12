@@ -34,6 +34,7 @@ export class Survey {
     this.transportCo2 = gallonsPerWeek*.4 + this.publicMiles*.01 + this.hoursFlown*.1;
 
     this.totalCo2 = this.foodCo2 + this.housingCo2 + this.energyCo2 + this.trashCo2 + this.transportCo2;
+    this.totalCo2 = Math.floor(this.totalCo2 * 100) / 100;
   }
 
   keepSurvey() {

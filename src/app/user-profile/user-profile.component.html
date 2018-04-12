@@ -5,8 +5,31 @@
 <button type="button" (click)='clickedShowSurveys()' class="btn btn-info btn-lg">Show Surveys</button>
 <button type="button" (click)='clickedShowTips()' class="btn btn-info btn-lg">Show Tips</button>
 
+<br><br><br>
 <div class="row">
-  <app-line-chart class="col-md-6" *ngIf="renderLineChart && userSurveys.length > 0" [childUserSurveys]="userSurveys" [childGoalSurvey]='userGoals'></app-line-chart>
+  <div class="col-md-6 border">
+    <br>
+    <div class="col-md-3">
+      <br><br>
+      <div id="food" class="well">
+        <h5>Food</h5>
+      </div>
+      <div id="housing" class="well">
+        <h5>Housing</h5>
+      </div>
+      <div id="energy" class="well">
+        <h5>Energy</h5>
+      </div>
+      <div id="trash" class="well">
+        <h5>Trash</h5>
+      </div>
+      <div id="transport" class="well">
+        <h5>Transport</h5>
+      </div>
+    </div>
+    <app-line-chart class="col-md-9" *ngIf="renderLineChart && userSurveys.length > 0" [childUserSurveys]="userSurveys" [childGoalSurvey]='userGoals'></app-line-chart>
+  </div>
+
   <div class="content col-md-6">
     <div *ngIf="showSurveys">
       <table class="table table-bordered">
@@ -31,4 +54,4 @@
     </div>
   </div>
 </div>
-<button type="button" (click)='deleteAccount()' class="btn btn-danger btn-xs">Delete Account</button>
+<button type="button" (click)='deleteAccount()' class="btn btn-danger btn-xs delete">Delete Account</button>

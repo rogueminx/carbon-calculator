@@ -28,7 +28,7 @@ export class LineChartComponent implements OnInit, OnChanges {
     { backgroundColor: '#9EA9AA', borderColor: '#000' },// trash Path
     { backgroundColor: '#F4EDE3', borderColor: '#000' }// transport Path
   ];
-  public lineChartLegend:boolean = true;
+  public lineChartLegend:boolean = false;
   public lineChartType:string = 'line';
 
   constructor() {
