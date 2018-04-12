@@ -1,4 +1,5 @@
 .login-flex {
+  margin-top: 50px;
   display: flex;
   flex-direction: row;
   margin-left:auto;
@@ -7,13 +8,88 @@
 }
 
 .login {
-  padding: 20px;
-  width: 50%;
+  width: 40%;
   text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  border: 1px solid #0D343A;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-right: 20px;
 }
 
-.register {
-  padding: 20px;
-  width: 50%;
+.sign-in-header {
+  font-size: 30px;
+  background-color: #0D343A;
+  font-family: 'Quicksand', sans-serif;
+  color: #C4BBAF;
+
+}
+
+.register{
+  width: 40%;
   text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  border: 1px solid #0D343A;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-left: 20px;
+}
+
+.registration-header {
+  font-size: 30px;
+  background-color: #0D343A;
+  font-family: 'Quicksand', sans-serif;
+  color: #C4BBAF;
+}
+
+.sign-in-button {
+  width: 150px;
+  height: 45px;
+  align-self: center;
+  background-color: #0D343A;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  opacity: .8;
+  border-radius: 15px;
+  color: #C4BBAF;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+
+.google-button {
+  width: 150px;
+  height: 45px;
+  align-self: center;
+  background-color: #DD8663;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  opacity: .8;
+  border-radius: 15px;
+  color: #0D343A;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.google-button:hover {
+  background-color: #DD8663;
+  opacity: .9;
+}
+
+.sign-in-button:hover {
+  background-color: #0D343A;
+  opacity: .9;
+}
+
+.sign-in-labels{
+  text-align: right;
+  padding: 5px;
+}
+
+.email-input{
+  margin-bottom: 5px;
+}
+
+.email-label{
+  margin-bottom: 10px;
 }

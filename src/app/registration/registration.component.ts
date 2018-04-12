@@ -21,7 +21,7 @@ export class RegistrationComponent implements OnInit {
       if(user) {
         console.log(user.uid);
       }
-      this.router.navigate([''])
+      this.router.navigate(['survey'])
     }).catch(error => {
       console.log(error.message);
     });
