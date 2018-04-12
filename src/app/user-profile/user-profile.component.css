@@ -66,6 +66,37 @@ td, tr {
   margin-top: 57px;
 }
 
+.tip-header {
+  font-size: 1.5em;
+  padding: 8px;
+  background-color: #0D343A;
+  font-family: 'Quicksand', sans-serif;
+  color: #C4BBAF;
+  text-align: center;
+  border-radius: 15px 15px 0px 0px;
+}
+
+.tip-top {
+  font-size: 1.5em;
+  background-color: #0D343A60;
+  font-family: 'Quicksand', sans-serif;
+  color: #0D343A;
+  text-align: center;
+}
+
+.tip-link {
+  font-family: 'Open Sans', sans-serif;
+  color: #0D343A;
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.tip-link a {
+  font-family: 'Open Sans', sans-serif;
+  color: #0D343A;
+  text-align: center;
+}
+
 .no-margin-p {
   margin:0;
 }
