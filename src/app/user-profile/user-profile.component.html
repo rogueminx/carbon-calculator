@@ -1,39 +1,41 @@
-
-
-<button type="button" (click)='setGoals()' class="btn btn-success btn-lg">Set A Goal</button>
-<button type="button" (click)='takeSurvey()' class="btn btn-info btn-lg">Take A Survey</button>
-<button type="button" (click)='clickedShowSurveys()' class="btn btn-info btn-lg">Show Surveys</button>
-<button type="button" (click)='clickedShowTips()' class="btn btn-info btn-lg">Show Tips</button>
-
-<br><br><br>
 <div class="row">
-  <div class="col-md-6 border">
-    <br>
-    <div class="col-md-3">
-      <br><br>
-      <div id="food" class="well">
-        <h5>Food</h5>
-      </div>
-      <div id="housing" class="well">
-        <h5>Housing</h5>
-      </div>
-      <div id="energy" class="well">
-        <h5>Energy</h5>
-      </div>
-      <div id="trash" class="well">
-        <h5>Trash</h5>
-      </div>
-      <div id="transport" class="well">
-        <h5>Transport</h5>
-      </div>
+  <div class="col-md-6">
+    <div class="chart-header">
+      <p class="no-margin-p">Carbon Footprint Timeline</p>
     </div>
-    <app-line-chart class="col-md-9" *ngIf="renderLineChart && userSurveys.length > 0" [childUserSurveys]="userSurveys" [childGoalSurvey]='userGoals'></app-line-chart>
+    <div>
+      <br>
+      <div class="col-md-3">
+        <br><br>
+        <div id="food" class="well">
+          <h5>Food</h5>
+        </div>
+        <div id="housing" class="well">
+          <h5>Housing</h5>
+        </div>
+        <div id="energy" class="well">
+          <h5>Energy</h5>
+        </div>
+        <div id="trash" class="well">
+          <h5>Trash</h5>
+        </div>
+        <div id="transport" class="well">
+          <h5>Transport</h5>
+        </div>
+      </div>
+      <app-line-chart class="col-md-9" *ngIf="renderLineChart && userSurveys.length > 0" [childUserSurveys]="userSurveys" [childGoalSurvey]='userGoals'></app-line-chart>
+    </div>
   </div>
-
   <div class="content col-md-6">
+    <div class="button-row">
+      <button type="button" id="goal-button" (click)='setGoals()' class="btn btn-success btn-lg">Set A Goal</button>
+      <button type="button" id="take-survey-button" (click)='takeSurvey()' class="btn btn-info btn-lg">Take A Survey</button>
+      <button type="button" id="show-survey-button"(click)='clickedShowSurveys()' class="btn btn-info btn-lg">Show Surveys</button>
+      <button type="button" id="tips-button" (click)='clickedShowTips()' class="btn btn-info btn-lg">Show Tips</button>
+    </div>
     <div *ngIf="showSurveys">
-      <table class="table table-bordered">
-        <thead>
+      <table class="table" id="survey-table">
+        <thead class="table-head">
           <tr>
             <th>Date of Survey</th>
             <th>Tons of C02/year</th>
@@ -50,8 +52,50 @@
       </table>
     </div>
     <div *ngIf="showTips">
-      <p>I'm data about how you can improve your worthless existence</p>
+      <div class="tip-header">
+        <p class="no-margin-p">Ways to Reduce</p>
+      </div>
+      <div class="tips-box">
+        <div class="tip-top">
+          <p>Huffington Post</p>
+        </div>
+        <div class="tip-link">
+          <a href="https://www.huffingtonpost.com/entry/7-instant-ways-to-reduce-your-carbon-footprint_us_59321992e4b00573ab57a383">7 Instant Ways To Reduce Your Carbon Footprint</a>
+        </div>
+      </div>
+      <div class="tips-box">
+        <div class="tip-top">
+          <p>National Geographic</p>
+        </div>
+        <div class="tip-link">
+          <a href="http://channel.nationalgeographic.com/before-the-flood/articles/14-easy-ways-to-reduce-your-own-carbon-footprint/">14 Easy Ways to Reduce Your Own Carbon Footprint</a>
+        </div>
+      </div>
+      <div class="tips-box">
+        <div class="tip-top">
+          <p>The Guardian</p>
+        </div>
+        <div class="tip-link">
+          <a href="https://www.theguardian.com/environment/2017/jan/19/how-to-reduce-carbon-footprint">How to reduce your carbon footprint</a>
+        </div>
+      </div>
+      <div class="tips-box">
+        <div class="tip-top">
+          <p>Mashable</p>
+        </div>
+        <div class="tip-link">
+          <a href="https://mashable.com/2013/10/22/reduce-carbon-footprint/#ssUJ.JF75iqG">10 Actions You Can Take Today to Reduce Your Carbon Footprint</a>
+        </div>
+      </div>
+      <div class="tips-box">
+        <div class="tip-top">
+          <p>Carbon Fund</p>
+        </div>
+        <div class="tip-link">
+          <a href="https://carbonfund.org/reduce/">Reduce What You Can, Offset What You Can’t</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-<button type="button" (click)='deleteAccount()' class="btn btn-danger btn-xs delete">Delete Account</button>
+<button type="button" (click)='deleteAccount()' class="btn btn-default btn-xs delete-button">Delete Account</button>

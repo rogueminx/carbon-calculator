@@ -26,3 +26,111 @@
   border-radius: 15px;
   border-color: black;
 }
+
+#goal-button {
+  background-image: url("/assets/images/1.jpg");
+  border-color: white;
+  font-family: 'Quicksand', sans-serif;
+  color: white;
+  text-shadow: 2px 2px 5px black;
+}
+
+#take-survey-button {
+  background-image: url("/assets/images/2.jpg");
+  border-color: white;
+  font-family: 'Quicksand', sans-serif;
+  color: white;
+  text-shadow: 2px 2px 5px black;
+}
+
+#tips-button {
+  background-image: url("/assets/images/3.jpg");
+  border-color: white;
+  font-family: 'Quicksand', sans-serif;
+  color: white;
+  text-shadow: 2px 2px 5px black;
+}
+
+#show-survey-button {
+  background-image: url("/assets/images/4.jpg");
+  border-color: white;
+  font-family: 'Quicksand', sans-serif;
+  color: white;
+  text-shadow: 2px 2px 5px black;
+}
+
+.button-row {
+  padding-bottom: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.table-head {
+  font-size: 1.5em;
+  background-color: #0D343A;
+  font-family: 'Quicksand', sans-serif;
+  color: #C4BBAF;
+}
+
+#survey-table {
+  border-collapse: collapse;
+  border-radius: 15px 15px 0px 0px;
+  overflow: hidden;
+  border-color: #0D343A;
+}
+
+td, tr {
+  border: 1px solid #0D343A;
+}
+
+.chart-header {
+  font-size: 1.5em;
+  padding: 8px;
+  background-color: #0D343A;
+  font-family: 'Quicksand', sans-serif;
+  color: #C4BBAF;
+  text-align: center;
+  border-radius: 15px 15px 0px 0px;
+  margin-top: 57px;
+}
+
+.tip-header {
+  font-size: 1.5em;
+  padding: 8px;
+  background-color: #0D343A;
+  font-family: 'Quicksand', sans-serif;
+  color: #C4BBAF;
+  text-align: center;
+  border-radius: 15px 15px 0px 0px;
+}
+
+.tip-top {
+  font-size: 1.5em;
+  background-color: #0D343A60;
+  font-family: 'Quicksand', sans-serif;
+  color: #0D343A;
+  text-align: center;
+}
+
+.tip-link {
+  font-family: 'Open Sans', sans-serif;
+  color: #0D343A;
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.tip-link a {
+  font-family: 'Open Sans', sans-serif;
+  color: #0D343A;
+  text-align: center;
+}
+
+.no-margin-p {
+  margin:0;
+}
+
+.delete-button {
+  margin-top: 100px
+
+}
