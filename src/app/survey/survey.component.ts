@@ -17,7 +17,7 @@ export class SurveyComponent implements OnInit {
   flown: number;
   test:number = 100;
   openSurvey: Survey = new Survey()
-  // userId: string;
+  currentQuestion: string = null;
   user;
   constructor(private surveyService: SurveyService, private authService: AuthenticationService, private userService: UserService, private router: Router) { }
 
@@ -46,15 +46,16 @@ export class SurveyComponent implements OnInit {
     }
   }
 
-
-
-  foodChange(animalProductCo2) {
-    // console.log("hey");
-    // console.log(animalProductCo2);
-    this.openSurvey.animalProductCo2 = parseFloat(animalProductCo2);
+  foodChange() {
+    console.log("foodchange")
+    // this.openSurvey.animalProductCo2 = parseFloat(animalProductCo2);
 
     this.openSurvey.calculate();
     console.log(this.openSurvey.transportCo2);
+  }
+
+  calculate() {
+    this.openSurvey.calculate();
   }
 
   housingChange(squareFeet, peopleInHome, energyCo2, trashCo2) {
@@ -77,6 +78,23 @@ export class SurveyComponent implements OnInit {
     this.openSurvey.calculate();
     console.log("updatetransport")
     console.log(this.openSurvey.transportCo2);
+  }
 
+  mouseEnter(question: string) {
+    this.currentQuestion = question;
+    console.log("enter")
+  }
+
+  mouseLeave(question: string) {
+    this.currentQuestion = null;
+  }
+
+  animalProductCo2Subtext() {
+    let number = this.openSurvey.animalProductCo2;
+    if (number == 0) return "Never (vegan)";
+    if (number < .75) return "Infrequently (vegetarian)";
+    if (number < 1.5) return "Occasionally (really like veggies)";
+    if (number < 2.25) return "Often (balanced meat/veggies)";
+    return "Very Often (meat daily)";
   }
 }
