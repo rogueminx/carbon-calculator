@@ -98,3 +98,11 @@ input {
   color: #C4BBAF;
   font-size: 20px;
 }
+
+.subtext {
+  position: relative;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  color: #D6AF66;
+  bottom: 10px;
+}
