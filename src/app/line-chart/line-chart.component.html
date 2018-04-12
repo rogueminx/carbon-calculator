@@ -1,7 +1,7 @@
 <!-- <div class="row">
   <div class="col-md-12"> -->
     <div style="display: block;">
-    <canvas baseChart width="400" height="400"
+    <canvas *ngIf='lineChartData.length > 0' baseChart width="400" height="400"
                 [datasets]="lineChartData"
                 [labels]="lineChartLabels"
                 [options]="lineChartOptions"

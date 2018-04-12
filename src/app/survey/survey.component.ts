@@ -55,7 +55,7 @@ export class SurveyComponent implements OnInit {
   }
 
   animalProductSubtext() {
-    let number = this.openSurvey.animalProduct;
+    let number = parseFloat(this.openSurvey.animalProduct);
     if (number == 0) return "Never (vegan)";
     if (number < .75) return "Infrequently (vegetarian)";
     if (number < 1.5) return "Occasionally (lots of veggies)";
@@ -102,11 +102,6 @@ export class SurveyComponent implements OnInit {
   }
 
   hoursFlownSubtext() {
-    return this.openSurvey.hoursFlown + " hours"
-    if (number == 0) return "Never (vegan)";
-    if (number < .75) return "Infrequently (vegetarian)";
-    if (number < 1.5) return "Occasionally (really like veggies)";
-    if (number < 2.25) return "Often (balanced meat/veggies)";
-    return "Very Often (meat daily)";
+    return this.openSurvey.hoursFlown + " hours";
   }
 }
