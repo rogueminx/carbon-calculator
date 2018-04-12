@@ -1,0 +1,40 @@
+.new-account-header {
+  font-size: 30px;
+  background-color: #0D343A;
+  font-family: 'Quicksand', sans-serif;
+  color: #C4BBAF;
+}
+
+button {
+  width: 150px;
+  height: 45px;
+  background-color: #0D343A;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  opacity: .8;
+  border-radius: 15px;
+  color: #C4BBAF;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+button:hover {
+  background-color: #0D343A;
+  opacity: .9;
+}
+
+.label-col {
+  text-align: right;
+}
+
+.button-holder {
+  text-align: center;
+}
+
+label {
+  padding: 5px;
+}
+
+.inputs {
+  margin-bottom: 5px;
+}
