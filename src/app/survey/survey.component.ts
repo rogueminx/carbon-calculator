@@ -72,7 +72,7 @@ export class SurveyComponent implements OnInit {
   }
 
   energySubtext() {
-    let number = this.openSurvey.energy;
+    let number = parseFloat(this.openSurvey.energy);
     if (number < 3) return "Efficiency-centered design";
     if (number < 4) return "Above average";
     if (number < 5) return "Average";
@@ -81,7 +81,7 @@ export class SurveyComponent implements OnInit {
   }
 
   trashSubtext() {
-    let number = this.openSurvey.animalProduct;
+    let number = parseFloat(this.openSurvey.animalProduct);
     if (number == 0) return "Much less";
     if (number < 2) return "Less";
     if (number < 4) return "Same";
@@ -99,11 +99,6 @@ export class SurveyComponent implements OnInit {
 
   publicMilesSubtext() {
     return this.openSurvey.publicMiles + " miles";
-    if (number == 0) return "Never (vegan)";
-    if (number < .75) return "Infrequently (vegetarian)";
-    if (number < 1.5) return "Occasionally (really like veggies)";
-    if (number < 2.25) return "Often (balanced meat/veggies)";
-    return "Very Often (meat daily)";
   }
 
   hoursFlownSubtext() {
