@@ -20,7 +20,7 @@ export class Survey {
   hoursFlown: number = 6;
   transportCo2: number = 2.61;
 
-  totalCo2: number = 12.71
+  totalCo2: number = 12.7
 
   constructor() {}
 
@@ -33,7 +33,8 @@ export class Survey {
     let gallonsPerWeek = this.vehicleMiles / this.milesPerGallon;
     this.transportCo2 = gallonsPerWeek*.4 + this.publicMiles*.01 + this.hoursFlown*.1;
 
-    this.totalCo2 = this.foodCo2 + this.housingCo2 + this.energyCo2 + this.trashCo2 + this.transportCo2;
+    let total = this.foodCo2 + this.housingCo2 + this.energyCo2 + this.trashCo2 + this.transportCo2;
+    this.totalCo2 = Math.round(total * 10) / 10;
   }
 
   keepSurvey() {
