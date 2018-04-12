@@ -22,9 +22,16 @@
   background-color: #c4bbaf;
   text-align: center;
 }
-.border {
-  border-radius: 15px;
-  border-color: black;
+
+h5 {
+  margin: 0px;
+  padding: 0.2em;
+}
+
+.well {
+  margin: 0px;
+  padding: 0px;
+  width: 8em;
 }
 
 #goal-button {
