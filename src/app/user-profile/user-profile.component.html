@@ -7,7 +7,28 @@
     <div class="chart-header">
       <p class="no-margin-p">Carbon Footprint Timeline</p>
     </div>
-    <app-line-chart *ngIf="renderLineChart && userSurveys.length > 0" [childUserSurveys]="userSurveys"></app-line-chart>
+    <div>
+      <br>
+      <div class="col-md-3">
+        <br><br>
+        <div id="food" class="well">
+          <h5>Food</h5>
+        </div>
+        <div id="housing" class="well">
+          <h5>Housing</h5>
+        </div>
+        <div id="energy" class="well">
+          <h5>Energy</h5>
+        </div>
+        <div id="trash" class="well">
+          <h5>Trash</h5>
+        </div>
+        <div id="transport" class="well">
+          <h5>Transport</h5>
+        </div>
+      </div>
+      <app-line-chart class="col-md-9" *ngIf="renderLineChart && userSurveys.length > 0" [childUserSurveys]="userSurveys" [childGoalSurvey]='userGoals'></app-line-chart>
+    </div>
   </div>
   <div class="content col-md-6">
     <div class="button-row">

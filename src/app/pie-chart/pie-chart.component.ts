@@ -19,17 +19,14 @@ export class PieChartComponent implements OnInit, OnChanges {
     public lineChartColors = [{ backgroundColor: ['#D6AF66', '#5F464B', '#DD8663', '#5C6D70', '#C4BBAF'] }];
 
     public chartClicked(e:any):void {
-      console.log(e);
       this.ngOnChanges();
     }
 
     ngOnChanges() {
       this.pieChartData = [this.food, this.housing, this.energy, this.trash, this.transport];
-      console.log('update');
     }
 
     public chartHovered(e:any):void {
-      console.log(e);
     }
 
     ngOnInit() {

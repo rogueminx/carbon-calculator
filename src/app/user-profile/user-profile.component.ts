@@ -12,6 +12,7 @@ import { SurveyService } from '../services/survey.service';
 export class UserProfileComponent implements OnInit, DoCheck {
   user;
   userSurveys;
+  userGoals;
   showSurveys: boolean = true;
   showTips: boolean = false;
   renderLineChart: boolean = false;
@@ -25,6 +26,9 @@ export class UserProfileComponent implements OnInit, DoCheck {
           this.userSurveys = dataLastEmittedFromObserver;
           this.renderLineChart = true;
         });
+        this.surveyService.getGoalsByUID(this.user.uid).subscribe(data => {
+          this.userGoals = data;
+        })
       }
     });
   }

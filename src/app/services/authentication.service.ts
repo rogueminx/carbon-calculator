@@ -22,7 +22,7 @@ export class AuthenticationService {
         let uid = firebase.auth().currentUser.uid;
         this.authenticatedUserUID = uid;
         let subscription = this.getUserByUID(uid).subscribe(data => {
-          if (data.length == 0) {
+          if (!data.$value) {
             const newUser = new User (signedInUser.user.displayName, signedInUser.user.uid, signedInUser.user.email);
             this.pushUserToDatabase(newUser);
             console.log(newUser)
@@ -43,9 +43,11 @@ export class AuthenticationService {
         let uid = firebase.auth().currentUser.uid;
         this.authenticatedUserUID = uid;
         signedInUser.sendEmailVerification();
-        signedInUser.updateProfile({displayName:displayName});
-        let subscription = this.userExists(uid).subscribe(user => {
-          if (!user) {
+        signedInUser.updateProfile({displayName:displayName, photoURL:'assets/images/treeicon.jpg'});
+        let subscription = this.getUserByUID(uid).subscribe(data => {
+          console.log(data.photoURL);
+          if (!data.$value) {
+            console.log('creating user')
             const newUser = new User (displayName, this.authenticatedUserUID, email);
             this.pushUserToDatabase(newUser);
           }
@@ -79,9 +81,8 @@ export class AuthenticationService {
    }
 
 //do we need this?
-   getUserByUID(userUID: string): FirebaseListObservable<any[]> {
-     let userList = this.database.list(`users`, {query: {orderByChild: 'UID', equalTo: userUID}});
-     return userList;
+   getUserByUID(userUID: string): FirebaseObjectObservable<any> {
+     return this.database.object(`users/${userUID}`);
    }
 
 
