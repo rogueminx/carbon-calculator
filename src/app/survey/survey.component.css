@@ -84,3 +84,17 @@
 input {
   z-index: 5000;
 }
+
+#caption {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  color: #C4BBAF;
+  font-size: 60px;
+}
+
+#sub-caption {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  color: #C4BBAF;
+  font-size: 20px;
+}
