@@ -11,7 +11,7 @@ A platform for managing personal carbon emissions. Users may sign up with their 
 #### Deployment
 Website is available at https://carbon-calc-e7c4c.firebaseapp.com/
 
-<kbd><img src="src/assets/img/screenshot.png" alt=""></kbd>
+<kbd><img src="src/assets/images/screenshot.png" alt=""></kbd>
 
 #### Behavior
 1. Allows user to fill out carbon footprint survey, display results real-time.
