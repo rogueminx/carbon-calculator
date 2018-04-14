@@ -8,8 +8,10 @@
 
 A platform for managing personal carbon emissions. Users may sign up with their google account and, once signed in, may set goals, track progress and view tips for reducing their carbon footprint.
 
-<!-- #### Deployment
-Website is available at [WEBSITE URL] -->
+#### Deployment
+Website is available at https://carbon-calc-e7c4c.firebaseapp.com/
+
+<kbd><img src="src/assets/img/screenshot.png" alt=""></kbd>
 
 #### Behavior
 1. Allows user to fill out carbon footprint survey, display results real-time.
